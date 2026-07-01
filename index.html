@@ -17,9 +17,7 @@
 
     @font-face {
         font-family: "Vazirmatn";
-        src: url("/fonts/Vazirmatn-Medium.woff2") format("woff2");
-        /* یا اگر فایل در پوشه fonts است: */
-        /* src: url("./fonts/Vazirmatn-Medium.woff2") format("woff2"); */
+        src: url("public/fonts/Vazirmatn-Medium.woff2") format("woff2");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -34,7 +32,7 @@
         transition: font-family 0.3s ease;
     }
 
-    /* استایل برای حالت فارسی */
+    
     html[dir="rtl"],
     body.farsi-mode {
         font-family: "Vazirmatn", "Lato", sans-serif !important;
@@ -169,7 +167,7 @@
         overflow-y: auto;
     }
 
-    /* دکمه تغییر زبان - بهبود ریسپانسیو */
+   
     .lang-switch-btn {
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -189,7 +187,7 @@
         transform: scale(1.05);
     }
 
-    /* دکمه در موبایل */
+    
     @media (max-width: 640px) {
         .lang-switch-btn {
             padding: 0.35rem 0.75rem;
@@ -197,7 +195,7 @@
         }
     }
 
-    /* حالت راست‌چین برای فارسی */
+    
     html[dir="rtl"] {
         direction: rtl;
     }
@@ -231,7 +229,7 @@
             flex-direction: column;
         }
 
-        /* بهبود هدر در موبایل */
+       
         header .flex.items-center.gap-6 {
             gap: 0.75rem;
         }
@@ -295,7 +293,6 @@
                 </div>
             </header>
 
-            <!-- منوی موبایل -->
             <div id="mobileSidebar" class="sidebar-mobile">
                 <div class="p-6 space-y-8">
                     <div>
@@ -380,7 +377,7 @@
             </div>
 
             <div class="flex flex-1 overflow-hidden container-wrapper">
-                <!-- Sidebar دسکتاپ -->
+
                 <aside
                     class="hidden lg:flex lg:w-80 bg-black/60 flex-col p-6 space-y-8 overflow-y-auto">
                     <div>
@@ -465,7 +462,6 @@
                     </div>
                 </aside>
 
-                <!-- محتوای اصلی -->
                 <main class="flex-1 overflow-y-auto p-4 lg:p-8 text-white">
                     <section id="about" class="pt-0">
                         <div
@@ -540,7 +536,7 @@
                         <div
                             class="grid grid-cols-3 md:grid-cols-4 gap-2 lg:gap-3 text-xs"
                             id="skillsContainer">
-                            <!-- مهارت‌ها توسط جاوااسکریپت پر می‌شوند -->
+
                         </div>
                     </section>
 
@@ -550,7 +546,7 @@
 
                         <div class="flex flex-col gap-3"
                             id="experienceContainer">
-                            <!-- تجربیات توسط جاوااسکریپت پر می‌شوند -->
+
                         </div>
                     </section>
 
@@ -561,7 +557,7 @@
                         <div
                             class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4"
                             id="projectsContainer">
-                            <!-- پروژه‌ها توسط جاوااسکریپت پر می‌شوند -->
+
                         </div>
                     </section>
 
@@ -578,7 +574,7 @@
                         <div
                             class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4"
                             id="languagesContainer">
-                            <!-- زبان‌ها توسط جاوااسکریپت پر می‌شوند -->
+
                         </div>
                     </section>
                 </main>
@@ -586,7 +582,7 @@
         </div>
 
         <script>
-    // ==================== دیکشنری متن‌ها ====================
+   
     const translations = {
         en: {
             // Header
@@ -754,7 +750,6 @@
 
     let currentLang = 'en';
 
-    // ==================== تابع تغییر زبان ====================
     function setLanguage(lang) {
         currentLang = lang;
         const t = translations[lang];
@@ -871,8 +866,7 @@
         </div>
     `;
 
-        // Education - با راست چین کردن عنوان در حالت فارسی
-        // Education - با راست چین کردن عنوان در حالت فارسی
+       
         const educationTitle = document.getElementById('educationTitle');
         educationTitle.innerHTML = t.educationTitle;
         if (currentLang === 'fa') {
@@ -938,7 +932,7 @@
         </div>
     `;
     }
-    // ==================== توابع منو ====================
+    
     function toggleMenu(btn) {
         const menu = btn.nextElementSibling;
         const icon = btn.querySelector('i');
@@ -1026,7 +1020,7 @@
         }
     }
 
-    // ==================== راه‌اندازی اولیه ====================
+   
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && (savedLang === 'en' || savedLang === 'fa')) {
         setLanguage(savedLang);
