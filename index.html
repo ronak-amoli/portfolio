@@ -2,322 +2,662 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ronak Amoli | Software Engineer | Enterprise Software | Bridging Business and Technology</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <base href="/" />
     <style>
-    @font-face {
-        font-family: "Lato";
-        src: url("\fonts\Lato-Medium.woff") format("woff2");
-    }
-
-    @font-face {
-        font-family: "Vazirmatn";
-        src: url("public/fonts/Vazirmatn-Medium.woff2") format("woff2");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    html,
-    body {
-        font-family: "Lato", sans-serif;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        transition: font-family 0.3s ease;
-    }
-
-
-    html[dir="rtl"],
-    body.farsi-mode {
-        font-family: "Vazirmatn", "Lato", sans-serif !important;
-    }
-
-    html[dir="rtl"] .text-content,
-    body.farsi-mode .text-content {
-        font-family: "Vazirmatn", sans-serif;
-    }
-
-    .video-bg {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .video-bg video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    .menu-collapse {
-        transition: all 0.4s ease;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    .menu-collapse.open {
-        max-height: 500px;
-        opacity: 1;
-    }
-
-    main {
-        position: sticky;
-        top: 0;
-        height: calc(92vh - 70px);
-        overflow-y: auto;
-        scroll-behavior: smooth;
-    }
-
-    section {
-        padding: 1.5rem 0 !important;
-        margin: 0 !important;
-        min-height: unset !important;
-    }
-
-    section:first-child {
-        padding-top: 0 !important;
-    }
-
-    .skill-item,
-    .experience-item,
-    .education-item,
-    .language-item {
-        margin-bottom: 0.75rem !important;
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #434343;
-        border-radius: 10px;
-        border: 2px solid transparent;
-        background-clip: content-box;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(168, 85, 247, 0.8);
-        background-clip: content-box;
-    }
-
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #434343 transparent;
-    }
-
-    .mobile-menu-btn {
-        display: none;
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        border-radius: 0.375rem;
-        transition: all 0.3s ease;
-        line-height: 1;
-    }
-
-    .mobile-menu-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .sidebar-mobile {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 100;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, opacity 0.4s ease;
-        opacity: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .sidebar-mobile.open {
-        max-height: 70vh;
-        opacity: 1;
-        overflow-y: auto;
-    }
-
-
-    .lang-switch-btn {
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 0.5rem 1rem;
-        border-radius: 2rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        color: white;
-        white-space: nowrap;
-    }
-
-    .lang-switch-btn:hover {
-        background: rgba(168, 85, 247, 0.5);
-        border-color: rgba(168, 85, 247, 0.8);
-        transform: scale(1.05);
-    }
-
-
-    @media (max-width: 640px) {
-        .lang-switch-btn {
-            padding: 0.35rem 0.75rem;
-            font-size: 0.75rem;
+        @font-face {
+            font-family: "Lato";
+            src: url("fonts/Lato-Medium.woff") format("woff2");
         }
 
-
-        header p {
-            display: none !important;
+        @font-face {
+            font-family: "Vazirmatn";
+            src: url("fonts/Vazirmatn-Medium.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
-
-        header .w-10.h-10 {
-            width: 2rem !important;
-            height: 2rem !important;
-        }
-
-        header h1 {
-            font-size: 0.8rem !important;
-            white-space: nowrap;
-        }
-
-
-        header .gap-3 {
-            gap: 0.5rem !important;
-        }
-
-        header .gap-2 {
-            gap: 0.35rem !important;
-        }
-
-
-        .mobile-menu-btn {
-            font-size: 1.2rem !important;
-            padding: 0.35rem !important;
-        }
-
-
-        header {
-            padding: 0.5rem 0.75rem !important;
-            min-height: 56px;
-        }
-
-
-        .sidebar-mobile {
-            top: 56px;
-        }
-
-
-        main {
-            height: calc(92vh - 56px);
-        }
-    }
-
-
-    html[dir="rtl"] {
-        direction: rtl;
-    }
-
-    html[dir="rtl"] .flex-row-reverse-rtl {
-        flex-direction: row-reverse;
-    }
-
-    @media (max-width: 1023px) {
-        .flex-1 {
+        html,
+        body {
+            font-family: "Lato", sans-serif;
             height: 100%;
+            margin: 0;
+            overflow: hidden;
+            transition: font-family 0.3s ease;
+        }
+
+        html[dir="rtl"],
+        body.farsi-mode {
+            font-family: "Vazirmatn", "Lato", sans-serif !important;
+        }
+
+        html[dir="rtl"] .text-content,
+        body.farsi-mode .text-content {
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        .video-bg {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .menu-collapse {
+            transition: all 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .menu-collapse.open {
+            max-height: 500px;
+            opacity: 1;
         }
 
         main {
+            position: sticky;
+            top: 0;
             height: calc(92vh - 70px);
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
 
         section {
-            padding: 1rem 0 !important;
+            padding: 1.5rem 0 !important;
+            margin: 0 !important;
+            min-height: unset !important;
+        }
+
+        section:first-child {
+            padding-top: 0 !important;
+        }
+
+        .skill-item,
+        .experience-item,
+        .education-item,
+        .language-item {
+            margin-bottom: 0.75rem !important;
+        }
+
+        #about .bg-white\/10 {
+            border: none !important;
+            outline: none !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #434343;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(168, 85, 247, 0.8);
+            background-clip: content-box;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #434343 transparent;
         }
 
         .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-mobile {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-mobile.open {
+            max-height: 70vh;
+            opacity: 1;
+            overflow-y: auto;
+        }
+
+        .about-box {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .lang-switch-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .lang-switch-btn:hover {
+            background: rgba(168, 85, 247, 0.5);
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: scale(1.05);
+        }
+
+
+        .project-slider {
+            position: relative;
+            margin-top: 0.75rem;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .project-slider .slides-wrapper {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .project-slider .slide {
+            min-width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-slider .slide img,
+        .project-slider .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
             display: block;
         }
 
-        aside {
-            display: none;
+        .project-slider .slide video {
+            background: #000;
         }
 
-        .container-wrapper {
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 2.2rem;
+            height: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+            font-size: 1rem;
+        }
+
+        .slider-btn:hover {
+            background: rgba(168, 85, 247, 0.7);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .slider-btn.prev {
+            left: 0.5rem;
+        }
+
+        .slider-btn.next {
+            right: 0.5rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0;
+        }
+
+        .slider-dots .dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .slider-dots .dot.active {
+            background: #a855f7;
+            transform: scale(1.2);
+        }
+
+        .slider-dots .dot:hover {
+            background: rgba(168, 85, 247, 0.6);
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 0.15rem 0.6rem;
+            border-radius: 1rem;
+            font-size: 0.65rem;
+            color: #d8b4fe;
+            margin: 0.15rem 0.15rem;
+        }
+
+
+        .process-step {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-2px);
+        }
+
+        .process-step .step-number {
+            width: 2.5rem;
+            height: 2.5rem;
+            min-width: 2.5rem;
+            border-radius: 50%;
+            background: rgba(168, 85, 247, 0.2);
+            border: 2px solid rgba(168, 85, 247, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #d8b4fe;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            background: rgba(168, 85, 247, 0.4);
+            transform: scale(1.1);
+            border-color: rgba(168, 85, 247, 0.8);
+        }
+
+        .process-arrow {
+            color: rgba(168, 85, 247, 0.5);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2rem;
+        }
+
+
+        html[dir="rtl"] .process-arrow {
+            transform: scaleX(-1);
+        }
+
+        @media (max-width: 640px) {
+            .lang-switch-btn {
+                padding: 0.35rem 0.75rem;
+                font-size: 0.75rem;
+            }
+
+            header p {
+                display: none !important;
+            }
+
+            header .w-10.h-10 {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+
+            header h1 {
+                font-size: 0.8rem !important;
+                white-space: nowrap;
+            }
+
+            header .gap-3 {
+                gap: 0.5rem !important;
+            }
+
+            header .gap-2 {
+                gap: 0.35rem !important;
+            }
+
+            .mobile-menu-btn {
+                font-size: 1.2rem !important;
+                padding: 0.35rem !important;
+            }
+
+            header {
+                padding: 0.5rem 0.75rem !important;
+                min-height: 56px;
+            }
+
+            .sidebar-mobile {
+                top: 56px;
+            }
+
+            main {
+                height: calc(92vh - 56px);
+            }
+
+            .slider-btn {
+                width: 1.8rem;
+                height: 1.8rem;
+                font-size: 0.8rem;
+            }
+
+            .slider-btn.prev {
+                left: 0.2rem;
+            }
+
+            .slider-btn.next {
+                right: 0.2rem;
+            }
+
+            .process-step .step-number {
+                width: 2rem;
+                height: 2rem;
+                min-width: 2rem;
+                font-size: 0.75rem;
+            }
+
+            .process-arrow {
+                font-size: 1rem;
+                min-width: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider-btn {
+                width: 1.6rem;
+                height: 1.6rem;
+                font-size: 0.7rem;
+            }
+
+            .process-step .step-number {
+                width: 1.75rem;
+                height: 1.75rem;
+                min-width: 1.75rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        html[dir="rtl"] {
+            direction: rtl;
+        }
+
+        html[dir="rtl"] .flex-row-reverse-rtl {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 1023px) {
+            .flex-1 {
+                height: 100%;
+            }
+
+            main {
+                height: calc(92vh - 70px);
+            }
+
+            section {
+                padding: 1rem 0 !important;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            aside {
+                display: none;
+            }
+
+            .container-wrapper {
+                flex-direction: column;
+            }
+
+            header .flex.items-center.gap-6 {
+                gap: 0.75rem;
+            }
+
+            header .w-14.h-14 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            header h1 {
+                font-size: 0.9rem;
+            }
+
+            header p {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar-mobile {
+                display: none !important;
+            }
+
+            aside {
+                display: flex !important;
+            }
+        }
+
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
             flex-direction: column;
         }
 
-
-        header .flex.items-center.gap-6 {
-            gap: 0.75rem;
+        .lightbox.active {
+            display: flex;
         }
 
-        header .w-14.h-14 {
-            width: 2.5rem;
-            height: 2.5rem;
+        .lightbox .lightbox-content {
+            position: relative;
+            width: 90%;
+            max-width: 1100px;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        header h1 {
+        .lightbox .lightbox-content img,
+        .lightbox .lightbox-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox .lightbox-content video {
+            background: #000;
+        }
+
+        .lightbox .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .lightbox .lb-nav:hover {
+            background: rgba(168, 85, 247, 0.7);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .lightbox .lb-nav.prev {
+            left: -1rem;
+        }
+
+        .lightbox .lb-nav.next {
+            right: -1rem;
+        }
+
+        .lightbox .lb-close {
+            position: absolute;
+            top: -2.5rem;
+            right: 0;
+            color: white;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .lightbox .lb-close:hover {
+            opacity: 1;
+        }
+
+        .lightbox .lb-counter {
+            position: absolute;
+            bottom: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.2rem 1rem;
+            border-radius: 1rem;
         }
 
-        header p {
-            font-size: 0.65rem;
-        }
-    }
+        @media (max-width: 640px) {
+            .lightbox .lb-nav {
+                width: 2.2rem;
+                height: 2.2rem;
+                font-size: 0.9rem;
+            }
 
-    @media (min-width: 1024px) {
-        .sidebar-mobile {
-            display: none !important;
-        }
+            .lightbox .lb-nav.prev {
+                left: 0.2rem;
+            }
 
-        aside {
-            display: flex !important;
+            .lightbox .lb-nav.next {
+                right: 0.2rem;
+            }
+
+            .lightbox .lb-close {
+                top: -2rem;
+                font-size: 1.5rem;
+                right: 0.2rem;
+            }
+
+            .lightbox .lb-counter {
+                font-size: 0.7rem;
+                bottom: -2rem;
+            }
         }
-    }
     </style>
 </head>
 
 <body class="video-bg flex items-center justify-center p-4 min-h-screen">
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation();">
+            <button class="lb-close" onclick="closeLightbox(event)">&times;</button>
+            <button class="lb-nav prev" id="lbPrev" onclick="event.stopPropagation(); lightboxNavigate(-1);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Preview" />
+            <video id="lightboxVideo" src="" controls muted></video>
+            <button class="lb-nav next" id="lbNext" onclick="event.stopPropagation(); lightboxNavigate(1);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lb-counter" id="lbCounter">1 / 1</div>
+        </div>
+    </div>
+
     <video autoplay muted loop playsinline>
-        <source src="public/video/video3.mp4" type="video/mp4">
+        <source src="video/video3.mp4" type="video/mp4" />
     </video>
 
-    <div class="bg-black/10 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10
-              w-full max-w-7xl h-[92vh] flex flex-col overflow-hidden">
+    <div
+        class="bg-black/10 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10 w-full max-w-7xl h-[92vh] flex flex-col overflow-hidden">
 
         <header
             class="bg-gradient-to-r from-purple-900/50 to-pink-900/50 p-2 lg:p-3 flex items-center justify-between gap-3 border-b border-white/10">
             <div class="flex items-center gap-3 lg:gap-6">
-                <img src="public/images/me3.jpg" alt="Ali"
-                    class="w-10 h-10 lg:w-14 lg:h-14 rounded-full object-cover border-2 border-white/30 shadow-xl">
+                <img src="images/me3.jpg" alt="Ali"
+                    class="w-10 h-10 lg:w-14 lg:h-14 rounded-full object-cover border-2 border-white/30 shadow-xl" />
                 <div>
                     <h1 class="text-sm lg:text-xl font-bold text-white" id="nameTitle">Ronak Amoli</h1>
                     <p class="text-[10px] lg:text-xs text-purple-200" id="jobTitle">Full Stack & ERP Developer |
@@ -335,7 +675,6 @@
             </div>
         </header>
 
-
         <div id="mobileSidebar" class="sidebar-mobile">
             <div class="p-6 space-y-8">
                 <div>
@@ -347,32 +686,37 @@
                     <div class="menu-collapse mt-3 ml-4 space-y-1 text-sm">
                         <a href="#about" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/about.svg" class='w-4'>
+                            <img src="images/about.svg" class='w-4' />
                             <span id="mobileAboutLink">About</span>
+                        </a>
+                        <a href="#process" onclick="closeMobileMenu()"
+                            class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
+                            <img src="images/skill.svg" class='w-4' />
+                            <span id="mobileProcessLink">Process</span>
                         </a>
                         <a href="#skills" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/skill.svg" class='w-4'>
+                            <img src="images/skill.svg" class='w-4' />
                             <span id="mobileSkillsLink">Skills</span>
                         </a>
                         <a href="#jobs" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/experience.svg" class='w-4'>
+                            <img src="images/experience.svg" class='w-4' />
                             <span id="mobileExperienceLink">Experience</span>
                         </a>
                         <a href="#projects" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/experience.svg" class='w-4'>
+                            <img src="images/experience.svg" class='w-4' />
                             <span id="mobileProjectsLink">Projects</span>
                         </a>
                         <a href="#education" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/univercity.svg" class='w-4'>
+                            <img src="images/univercity.svg" class='w-4' />
                             <span id="mobileEducationLink">Education</span>
                         </a>
                         <a href="#languages" onclick="closeMobileMenu()"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/about.svg" class='w-4'>
+                            <img src="images/about.svg" class='w-4' />
                             <span id="mobileLanguagesLink">Languages</span>
                         </a>
                     </div>
@@ -387,19 +731,19 @@
                     <div class="menu-collapse mt-3 ml-4 space-y-1 text-sm">
                         <a href="https://www.linkedin.com/in/ronak-amoli-311a312ab/" target="_blank"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/linkedin.svg" class='w-4'> LinkedIn
+                            <img src="images/linkedin.svg" class='w-4' /> LinkedIn
                         </a>
                         <a href="https://github.com/ronak-amoli/portfolio"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/github.svg" class='w-4'> GitHub
+                            <img src="images/github.svg" class='w-4' /> GitHub
                         </a>
                         <a href="https://t.me/R_Amoli" target="_blank"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/telegram.svg" class='w-4'> Telegram
+                            <img src="images/telegram.svg" class='w-4' /> Telegram
                         </a>
                         <a href="mailto:ronak.amolii@gmail.com"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/email.svg" class="w-4"> Email
+                            <img src="images/email.svg" class="w-4" /> Email
                         </a>
                     </div>
                 </div>
@@ -418,32 +762,37 @@
                     <div class="menu-collapse open mt-3 ml-4 space-y-1 text-sm">
                         <a href="#about"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/about.svg" class='w-4'>
+                            <img src="images/about.svg" class='w-4' />
                             <span id="desktopAboutLink">About</span>
+                        </a>
+                        <a href="#process"
+                            class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
+                            <img src="images/skill.svg" class='w-4' />
+                            <span id="desktopProcessLink">Process</span>
                         </a>
                         <a href="#skills"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/skill.svg" class='w-4'>
+                            <img src="images/skill.svg" class='w-4' />
                             <span id="desktopSkillsLink">Skills</span>
                         </a>
                         <a href="#jobs"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/experience.svg" class='w-4'>
+                            <img src="images/experience.svg" class='w-4' />
                             <span id="desktopExperienceLink">Experience</span>
                         </a>
                         <a href="#projects"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/experience.svg" class='w-4'>
+                            <img src="images/experience.svg" class='w-4' />
                             <span id="desktopProjectsLink">Projects</span>
                         </a>
                         <a href="#education"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/univercity.svg" class='w-4'>
+                            <img src="images/univercity.svg" class='w-4' />
                             <span id="desktopEducationLink">Education</span>
                         </a>
                         <a href="#languages"
                             class="flex items-center gap-3 py-2.5 px-4 rounded hover:bg-white/10 text-gray-300 hover:text-white transition group">
-                            <img src="public/images/about.svg" class='w-4'>
+                            <img src="images/about.svg" class='w-4' />
                             <span id="desktopLanguagesLink">Languages</span>
                         </a>
                     </div>
@@ -458,19 +807,19 @@
                     <div class="menu-collapse open mt-3 ml-4 space-y-1 text-sm">
                         <a href="https://www.linkedin.com/in/ronak-amoli-311a312ab/" target="_blank"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/linkedin.svg" class='w-4'> LinkedIn
+                            <img src="images/linkedin.svg" class='w-4' /> LinkedIn
                         </a>
                         <a href="https://github.com/ronak-amoli/portfolio"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/github.svg" class='w-4'> GitHub
+                            <img src="images/github.svg" class='w-4' /> GitHub
                         </a>
                         <a href="https://t.me/R_Amoli" target="_blank"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/telegram.svg" class='w-4'> Telegram
+                            <img src="images/telegram.svg" class='w-4' /> Telegram
                         </a>
                         <a href="mailto:ronak.amolii@gmail.com"
                             class="block py-2 px-4 rounded hover:bg-white/10 text-gray-300 flex items-center gap-3">
-                            <img src="public/images/email.svg" class="w-4"> Email
+                            <img src="images/email.svg" class="w-4" /> Email
                         </a>
                     </div>
                 </div>
@@ -479,55 +828,181 @@
             <main class="flex-1 overflow-y-auto p-4 lg:p-8 text-white">
                 <section id="about" class="pt-0">
                     <div
-                        class="bg-white/10 rounded-xl p-4 lg:p-6 flex flex-col md:flex-row items-start gap-4 lg:gap-6 skill-item">
+                        class="bg-white/10 rounded-xl p-4 lg:p-6 flex flex-col md:flex-row items-start gap-4 lg:gap-6 about-box">
                         <div class="flex-1 text-sm leading-6 text-gray-300">
                             <h1 class="text-lg lg:text-xl font-bold text-white pb-2 lg:pb-4" id="aboutName">Ronak Amoli
                             </h1>
                             <p id="aboutText" class="text-xs lg:text-sm">
                                 Hi, I'm Ronak.<br><br>
-
                                 I'm a Software Engineer with over 3 years of experience designing and developing
                                 enterprise software, CMS platforms, and business applications using Laravel and modern
                                 web technologies.<br><br>
-
                                 My career began with ERP systems and Oracle PL/SQL, where I developed reports, queries,
                                 views, and database objects to support business operations. As my passion for software
                                 engineering grew, I transitioned into full-stack development, building internal business
                                 applications, developing and maintaining enterprise CMS platforms, and delivering
                                 corporate and client websites.<br><br>
-
                                 What motivates me most is solving real business challenges through technology. I enjoy
                                 translating business requirements into practical, scalable software solutions that
                                 improve workflows, increase efficiency, and create measurable value for users.
-
                                 Alongside software development, I've participated in requirements gathering, business
                                 process analysis, and solution planning for industrial organizations. These experiences
                                 strengthened my interest in connecting business goals with technical solutions to build
                                 software that solves real-world problems.<br><br>
-
                                 I'm continuously expanding my knowledge in software architecture, enterprise systems,
                                 and business analysis while building reliable, maintainable, and user-focused
                                 applications.
                             </p>
 
                             <div class="mt-3 lg:mt-4">
-                                <a href="public/resume/ronak-amoli-resume-en.pdf" id="downloadResumeBtn"
+                                <a href="resume/ronak-amoli-resume-en.pdf" id="downloadResumeBtn"
                                     download="ronak-amoli-resume-en.pdf"
                                     class="px-3 py-1.5 lg:px-4 lg:py-2 bg-white hover:bg-[#310E3E] hover:text-white rounded-lg text-black text-xs lg:text-sm transition inline-block w-auto">
                                     Download Resume
                                 </a>
                             </div>
                         </div>
-
                         <div
                             class="w-32 h-32 lg:w-48 lg:h-48 rounded-xl overflow-hidden flex-shrink-0 lg:sticky lg:top-4">
-                            <img src="public/images/me3.jpg" class="w-full h-full object-cover" alt="My Photo">
+                            <img src="images/me3.jpg" class="w-full h-full object-cover" alt="My Photo" />
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="process">
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="processTitle">How I Work</h2>
+
+                    <div class="bg-white/5 rounded-xl p-4 lg:p-6">
+
+                        <div class="hidden md:flex items-center justify-between gap-2 lg:gap-4">
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">1</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step1Title">Analyze
+                                </h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step1Desc">
+                                    Understand needs</p>
+                            </div>
+
+                            <div class="process-arrow">→</div>
+
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">2</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step2Title">Design</h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step2Desc">Plan
+                                    & architect</p>
+                            </div>
+
+                            <div class="process-arrow">→</div>
+
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">3</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step3Title">Build</h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step3Desc">
+                                    Develop solution</p>
+                            </div>
+
+                            <div class="process-arrow">→</div>
+
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">4</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step4Title">Test</h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step4Desc">
+                                    Quality check</p>
+                            </div>
+
+                            <div class="process-arrow">→</div>
+
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">5</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step5Title">Deploy</h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step5Desc">
+                                    Launch & monitor</p>
+                            </div>
+
+                            <div class="process-arrow">→</div>
+
+
+                            <div class="process-step flex flex-col items-center text-center flex-1">
+                                <div class="step-number">6</div>
+                                <h4 class="text-xs lg:text-sm font-semibold text-white mt-2" id="step6Title">Maintain
+                                </h4>
+                                <p class="text-[10px] lg:text-xs text-gray-400 mt-1 hidden lg:block" id="step6Desc">
+                                    Improve continuously</p>
+                            </div>
+                        </div>
+
+
+                        <div class="md:hidden space-y-1">
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">1</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step1TitleMobile">Analyze</h4>
+                                    <p class="text-xs text-gray-400" id="step1DescMobile">Understand needs</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center text-purple-400/50 text-xs" id="mobileArrow1">↓</div>
+
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">2</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step2TitleMobile">Design</h4>
+                                    <p class="text-xs text-gray-400" id="step2DescMobile">Plan & architect</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center text-purple-400/50 text-xs" id="mobileArrow2">↓</div>
+
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">3</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step3TitleMobile">Build</h4>
+                                    <p class="text-xs text-gray-400" id="step3DescMobile">Develop solution</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center text-purple-400/50 text-xs" id="mobileArrow3">↓</div>
+
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">4</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step4TitleMobile">Test</h4>
+                                    <p class="text-xs text-gray-400" id="step4DescMobile">Quality check</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center text-purple-400/50 text-xs" id="mobileArrow4">↓</div>
+
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">5</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step5TitleMobile">Deploy</h4>
+                                    <p class="text-xs text-gray-400" id="step5DescMobile">Launch & monitor</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center text-purple-400/50 text-xs" id="mobileArrow5">↓</div>
+
+                            <div
+                                class="process-step flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                                <div class="step-number text-sm">6</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white" id="step6TitleMobile">Maintain</h4>
+                                    <p class="text-xs text-gray-400" id="step6DescMobile">Improve continuously</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <section id="skills">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6" id="skillsTitle">My skills</h2>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="skillsTitle">My skills</h2>
 
                     <div class="grid grid-cols-3 md:grid-cols-4 gap-2 lg:gap-3 text-xs" id="skillsContainer">
 
@@ -535,7 +1010,8 @@
                 </section>
 
                 <section id="jobs">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6" id="experienceTitle">My Experiences</h2>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="experienceTitle">My
+                        Experiences</h2>
 
                     <div class="flex flex-col gap-3" id="experienceContainer">
 
@@ -543,7 +1019,8 @@
                 </section>
 
                 <section id="projects">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6" id="projectsTitle">My Projects</h2>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="projectsTitle">Selected
+                        Projects</h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4" id="projectsContainer">
 
@@ -551,12 +1028,13 @@
                 </section>
 
                 <section id="education">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6" id="educationTitle">My Educations</h2>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="educationTitle">My Educations
+                    </h2>
                     <div class="space-y-3" id="educationContainer"></div>
                 </section>
 
                 <section id="languages">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6" id="languagesTitle">Languages</h2>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-left" id="languagesTitle">Languages</h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4" id="languagesContainer">
 
@@ -567,478 +1045,985 @@
     </div>
 
     <script>
-    const translations = {
-        en: {
+        let lightboxItems = [];
+        let lightboxIndex = 0;
+        let lightboxProjectId = null;
 
-            nameTitle: "Ronak Amoli",
-            jobTitle: "Software Engineer | Enterprise Software | Bridging Business and Technology",
-            langBtn: "🇬🇧 EN",
+        function openLightbox(projectId, index) {
 
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project || !project.gallery || project.gallery.length === 0) return;
 
-            categoriesTitle: "Categories",
-            aboutLink: "About",
-            skillsLink: "Skills",
-            experienceLink: "Experience",
-            projectsLink: "Projects",
-            educationLink: "Education",
-            languagesLink: "Languages",
-            socialTitle: "Social Links",
+            lightboxProjectId = projectId;
+            lightboxItems = project.gallery;
+            lightboxIndex = index;
 
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            const video = document.getElementById('lightboxVideo');
+            const counter = document.getElementById('lbCounter');
 
-            aboutName: "Ronak Amoli",
-            aboutText: "Hi, I'm Ronak.<br><br>I'm a Software Engineer with over 3 years of experience designing and developing enterprise software, CMS platforms, and business applications using Laravel and modern web technologies.<br><br>My career began with ERP systems and Oracle PL/SQL, where I developed reports, queries, views, and database objects to support business operations. As my passion for software engineering grew, I transitioned into full-stack development, building internal business applications, developing and maintaining enterprise CMS platforms, and delivering corporate and client websites.<br><br>What motivates me most is solving real business challenges through technology. I enjoy translating business requirements into practical, scalable software solutions that improve workflows, increase efficiency, and create measurable value for users.<br><br>Alongside software development, I've participated in requirements gathering, business process analysis, and solution planning for industrial organizations. These experiences strengthened my interest in connecting business goals with technical solutions to build software that solves real-world problems.<br><br>I'm continuously expanding my knowledge in software architecture, enterprise systems, and business analysis while building reliable, maintainable, and user-focused applications.",
-            downloadResume: "Download Resume",
-            resumeFile: "ronak-amoli-resume-en.pdf",
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
 
 
-            skillsTitle: "My Skills",
-            skills: [
-                "PHP / Laravel", "Oracle PL/SQL", "MySQL", "Git & REST API",
-                "IFS ERP / ERP Dev", "Crystal Reports", "CMS Optimization", "PWA",
-                "Figma", "HTML5", "CSS3", "Tailwind", "JavaScript (ES6+)"
-            ],
-
-
-            experienceTitle: "My Experiences",
-            job1Title: "Full Stack Developer / ERP Developer | Sepehr Afrooz Saba (Saba ICT)",
-            job1Sub: "Working across enterprise software development, ERP reporting, CMS enhancement, and web application maintenance.",
-            job1Date: "Aug 2023 – Present (Full-time)",
-            job1Details: [
-                "Developed and maintained enterprise applications using PHP Laravel",
-                "Designed and implemented two internal full-stack software solutions from planning to deployment",
-                "Maintained and enhanced existing Laravel-based systems",
-                "Added new features and improvements to the company's CMS platform",
-                "Redesigned corporate and client websites",
-                "Customized website themes and user interfaces",
-                "Worked with ERP team on reporting and business data solutions",
-                "Developed SQL queries, Views, Functions, and reporting structures using Oracle PL/SQL",
-                "Created business reports using Crystal Reports",
-                "Provided technical support and maintenance for customer-facing systems and websites"
-            ],
-            job2Title: "Teacher Assistant",
-            job2Date: "Sep 2022 - Jul 2023 (Part-time)",
-            job2Text: "Teaching Assistant for Computer Networks course for two consecutive semesters.",
-            job3Title: "Technical Systems Experience (Freelance) — Afshid Khazar",
-            job3Text: "Worked with VoIP infrastructure and communication systems. Gained strong foundation in analyzing constraints, designing solutions, and delivering reliable user-facing outcomes.",
-
-
-            projectsTitle: "My Projects",
-            project1Title: "Saba ICT Website Redesign",
-            project1Text: "Redesigned and redeveloped the Saba ICT corporate website, built on a custom Laravel-based CMS. Developed a modern and responsive user interface while continuously enhancing the CMS through new features, system improvements, and content management optimizations. Built scalable front-end components using Tailwind CSS and JavaScript, with a strong focus on maintainability, performance, accessibility, and user experience. The project resulted in a more consistent design system and a more efficient platform for managing and publishing content.",
-            project2Title: "Mazinoor Label Printing Web App",
-            project2Text: "Developed a full-stack internal web application for Mazinoor Industrial Group to automate carton label generation and printing workflows. Designed and implemented the backend using Laravel, while building the user interface with HTML, Tailwind CSS, and JavaScript. Created dynamic print-ready templates optimized for accurate rendering and production use. The solution streamlined label management processes, reduced manual effort and operational errors, and improved consistency across manufacturing workflows.",
-            project3Title: "Mazinoor Elite Linear Light Web App",
-            project3Text: "Internal web application developed for optimizing cutting and assembly layouts of Elite linear lights based on user‑requested lengths. Backend implemented with Laravel and front-end built using HTML, Tailwind CSS, and JavaScript. Designed to automate layout generation, reduce material waste, and improve production workflow efficiency.",
-
-
-            educationTitle: "My Educations",
-            edu1Title: "BNUT - Babol Noshirvani University",
-            edu1Degree: "B.Sc. in Computer Hardware Engineering",
-            edu1Dept: "Department of Computer Engineering",
-            edu1Date1: "2014 – 2018",
-            edu1Date2: "Sep 2014 – Sep 2018",
-            edu2Title: "University of Mazandaran of Technology",
-            edu2Degree: "M.Sc. in Computer Networks",
-            edu2Dept: "Department of Computer Engineering",
-            edu2Date1: "2021 – 2024",
-            edu2Date2: "Sep 2021 – Sep 2024",
-
-
-            languagesTitle: "Languages",
-            lang1Name: "Persian (فارسی)",
-            lang1Level: "Native Speaker",
-            lang2Name: "English",
-            lang2Level: "Fluent"
-        },
-        fa: {
-
-            nameTitle: "روناک آملی",
-            jobTitle: "مهندس نرم‌افزار | توسعه راهکارهای سازمانی",
-            langBtn: "🇮🇷 FA",
-
-
-            categoriesTitle: "دسته‌بندی",
-            aboutLink: "درباره من",
-            skillsLink: "مهارت‌ها",
-            experienceLink: "سوابق کاری",
-            projectsLink: "پروژه‌ها",
-            educationLink: "تحصیلات",
-            languagesLink: "زبان‌ها",
-            socialTitle: "شبکه‌های اجتماعی",
-
-
-            aboutName: "روناک آملی",
-            aboutText: "سلام، من روناک هستم.<br><br>من مهندس نرم‌افزار با بیش از ۳ سال تجربه در طراحی، توسعه و نگهداری نرم‌افزارهای سازمانی، سیستم‌های مدیریت محتوا (CMS) و راهکارهای مبتنی بر Laravel هستم.<br><br>فعالیت حرفه‌ای من با ERP و Oracle PL/SQL آغاز شد؛ جایی که در توسعه گزارش‌های سازمانی، طراحی Query، View و Function و پشتیبانی از فرآیندهای کسب‌وکار مشارکت داشتم. با افزایش علاقه‌ام به مهندسی نرم‌افزار، مسیر کاری‌ام به سمت توسعه Full-Stack تغییر کرد و امروز در زمینه توسعه سامانه‌های سازمانی، نگهداری و توسعه CMS اختصاصی، و طراحی وب‌سایت‌های سازمانی و مشتریان فعالیت می‌کنم.<br><br>بیشترین انگیزه من، حل مسائل واقعی کسب‌وکار با استفاده از فناوری است. از تحلیل نیازمندی‌ها و طراحی راهکار گرفته تا توسعه و استقرار نرم‌افزار، از ساخت راهکارهایی لذت می‌برم که فرآیندهای کاری را بهبود می‌دهند، بهره‌وری را افزایش می‌دهند و برای کاربران ارزش واقعی ایجاد می‌کنند.<br><br>در کنار توسعه نرم‌افزار، در تحلیل نیازمندی‌ها، بررسی فرآیندهای کسب‌وکار و ارائه راهکار برای سازمان‌های صنعتی نیز تجربه دارم. علاقه‌مندم با ایجاد ارتباط مؤثر میان نیازهای کسب‌وکار و فناوری، راهکارهایی کاربردی، پایدار و قابل توسعه ارائه دهم.<br><br>در حال حاضر نیز به‌صورت مستمر در حال یادگیری و توسعه دانش خود در حوزه‌های معماری نرم‌افزار، سیستم‌های سازمانی و تحلیل کسب‌وکار هستم تا بتوانم راهکارهای مؤثرتر و مقیاس‌پذیرتری طراحی و پیاده‌سازی کنم.",
-            downloadResume: "دانلود رزومه",
-            resumeFile: "ronak-amoli-resume-fa.pdf",
-
-
-            skillsTitle: "مهارت‌های من",
-            skills: [
-                "PHP / Laravel", "Oracle PL/SQL", "MySQL", "Git & REST API",
-                "IFS ERP / ERP Dev", "Crystal Reports", "CMS Optimization", "PWA",
-                "Figma", "HTML5", "CSS3", "Tailwind", "JavaScript (ES6+)"
-            ],
-
-
-            experienceTitle: "سوابق کاری",
-            job1Title: "توسعه‌دهنده Full Stack / توسعه‌دهنده ERP | سپهر افروز صبا",
-            job1Sub: "فعالیت در زمینه توسعه نرم‌افزارهای سازمانی، گزارشات ERP، بهبود CMS و نگهداری اپلیکیشن‌های وب",
-            job1Date: "مرداد ۱۴۰۲ – اکنون (تمام وقت)",
-            job1Details: [
-                "توسعه و نگهداری نرم‌افزارهای سازمانی مبتنی بر PHP Laravel",
-                "طراحی و پیاده‌سازی دو سامانه Full Stack داخلی از تحلیل تا استقرار",
-                "توسعه و پشتیبانی نرم‌افزارهای موجود و رفع اشکالات فنی",
-                "توسعه قابلیت‌های جدید و بهینه‌سازی CMS سازمانی",
-                "بازطراحی وب‌سایت شرکت و وب‌سایت مشتریان",
-                "طراحی و سفارشی‌سازی قالب‌ها و رابط‌های کاربری",
-                "همکاری با تیم ERP در توسعه گزارشات سازمانی",
-                "طراحی Query، View و Function در Oracle PL/SQL",
-                "توسعه گزارشات با Crystal Reports",
-                "پشتیبانی فنی سامانه‌ها و وب‌سایت‌های مشتریان"
-            ],
-            job2Title: "دستیار آموزشی",
-            job2Date: "شهریور ۱۴۰۱ - تیر ۱۴۰۲ (پاره وقت)",
-            job2Text: "دستیار آموزشی درس شبکه‌های کامپیوتری برای دو ترم متوالی",
-            job3Title: "تجربه سیستم‌های فنی (فریلنس) — افشید خزر",
-            job3Text: "کار با زیرساخت VoIP و سیستم‌های ارتباطی. به دست آوردن پایه قوی در تحلیل محدودیت‌ها، طراحی راهکارها و ارائه نتایج قابل اعتماد برای کاربران.",
-
-
-            projectsTitle: "پروژه‌های من",
-            project1Title: "بازطراحی وب‌سایت صبا آی‌سی‌تی (Saba ICT)",
-            project1Text: "بازطراحی و توسعه وب‌سایت سازمانی صبا ICT بر بستر یک CMS اختصاصی مبتنی بر Laravel. طراحی و پیاده‌سازی رابط کاربری مدرن و واکنش‌گرا، همراه با توسعه مستمر قابلیت‌های جدید، بهبود ساختار سیستم و بهینه‌سازی فرآیند مدیریت محتوا. توسعه کامپوننت‌های مقیاس‌پذیر Front-End با استفاده از Tailwind CSS و JavaScript با تمرکز بر قابلیت نگهداری، کارایی، دسترس‌پذیری و تجربه کاربری. این پروژه منجر به ایجاد یک سیستم طراحی منسجم‌تر و بستری کارآمدتر برای مدیریت و انتشار محتوا شد.",
-            project2Title: "وب‌اپلیکیشن چاپ لیبل مازی‌نور",
-            project2Text: "توسعه یک سامانه داخلی Full Stack برای گروه صنعتی مازینور با هدف مکانیزه‌سازی فرآیند تولید و چاپ لیبل‌های کارتن. طراحی و پیاده‌سازی بخش Backend با Laravel و توسعه رابط کاربری با HTML، Tailwind CSS و JavaScript انجام شد. همچنین قالب‌های چاپی داینامیک و آماده چاپ برای نمایش دقیق اطلاعات در فرآیند تولید طراحی گردید. این سامانه باعث بهینه‌سازی مدیریت لیبل‌ها، کاهش فعالیت‌های دستی و خطاهای عملیاتی، و افزایش یکپارچگی فرآیندهای تولید شد.",
-            project3Title: "وب‌اپلیکیشن بهینه‌سازی چیدمان چراغ‌های خطی Elite مازی‌نور",
-            project3Text: "یک وب‌اپلیکیشن داخلی که برای بهینه‌سازی چیدمان برش و مونتاژ چراغ‌های خطی «Elite» بر اساس طول‌های درخواستی کاربر توسعه یافته است. بخش بک‌اند با Laravel و فرانت‌اند با استفاده از HTML، Tailwind CSS و JavaScript پیاده‌سازی شده‌اند. این سامانه با هدف خودکارسازی تولید چیدمان، کاهش ضایعات مواد اولیه و افزایش بهره‌وری فرآیند تولید طراحی شده است.",
-
-
-            educationTitle: "تحصیلات",
-            edu1Title: "دانشگاه صنعتی نوشیروانی بابل",
-            edu1Degree: "کارشناسی مهندسی سخت‌افزار کامپیوتر",
-            edu1Dept: "دانشکده مهندسی کامپیوتر",
-            edu1Date1: "۱۳۹۳ – ۱۳۹۷",
-            edu1Date2: "شهریور ۱۳۹۳ – شهریور ۱۳۹۷",
-            edu2Title: "دانشگاه مازندران(بابلسر)",
-            edu2Degree: "کارشناسی ارشد شبکه‌های کامپیوتری",
-            edu2Dept: "دانشکده مهندسی کامپیوتر",
-            edu2Date1: "۱۴۰۰ – ۱۴۰۳",
-            edu2Date2: "شهریور ۱۴۰۰ – شهریور ۱۴۰۳",
-
-
-            languagesTitle: "زبان‌ها",
-            lang1Name: "فارسی",
-            lang1Level: "زبان مادری",
-            lang2Name: "انگلیسی",
-            lang2Level: "مسلط"
-        }
-    };
-
-    let currentLang = 'en';
-
-
-    function setLanguage(lang) {
-        currentLang = lang;
-        const t = translations[lang];
-
-        localStorage.setItem('preferredLanguage', lang);
-
-        if (lang === 'fa') {
-            document.documentElement.setAttribute('dir', 'rtl');
-            document.body.classList.add('farsi-mode');
-        } else {
-            document.documentElement.setAttribute('dir', 'ltr');
-            document.body.classList.remove('farsi-mode');
+            showLightboxItem(lightboxIndex);
+            counter.textContent = `${lightboxIndex + 1} / ${lightboxItems.length}`;
         }
 
-        document.getElementById('langSwitchBtn').innerHTML = t.langBtn;
-        document.getElementById('nameTitle').innerHTML = t.nameTitle;
-        document.getElementById('jobTitle').innerHTML = t.jobTitle;
+        function showLightboxItem(index) {
+            const img = document.getElementById('lightboxImg');
+            const video = document.getElementById('lightboxVideo');
+            const item = lightboxItems[index];
 
-        document.querySelectorAll('#mobileCategoriesTitle, #desktopCategoriesTitle').forEach(el => {
-            if (el) el.innerHTML = t.categoriesTitle;
-        });
-        document.querySelectorAll('#mobileSocialTitle, #desktopSocialTitle').forEach(el => {
-            if (el) el.innerHTML = t.socialTitle;
-        });
+            img.style.display = 'none';
+            video.style.display = 'none';
+            video.pause();
 
-        document.querySelectorAll('#mobileAboutLink, #desktopAboutLink').forEach(el => {
-            if (el) el.innerHTML = t.aboutLink;
-        });
-        document.querySelectorAll('#mobileSkillsLink, #desktopSkillsLink').forEach(el => {
-            if (el) el.innerHTML = t.skillsLink;
-        });
-        document.querySelectorAll('#mobileExperienceLink, #desktopExperienceLink').forEach(el => {
-            if (el) el.innerHTML = t.experienceLink;
-        });
-        document.querySelectorAll('#mobileProjectsLink, #desktopProjectsLink').forEach(el => {
-            if (el) el.innerHTML = t.projectsLink;
-        });
-        document.querySelectorAll('#mobileEducationLink, #desktopEducationLink').forEach(el => {
-            if (el) el.innerHTML = t.educationLink;
-        });
-        document.querySelectorAll('#mobileLanguagesLink, #desktopLanguagesLink').forEach(el => {
-            if (el) el.innerHTML = t.languagesLink;
-        });
+            if (item.type === 'image') {
+                img.src = item.src;
+                img.style.display = 'block';
+            } else if (item.type === 'video') {
+                video.src = item.src;
+                video.style.display = 'block';
+                video.load();
+            }
 
-        document.getElementById('aboutName').innerHTML = t.aboutName;
-        document.getElementById('aboutText').innerHTML = t.aboutText;
-
-
-        const resumeBtn = document.getElementById('downloadResumeBtn');
-        resumeBtn.innerHTML = t.downloadResume;
-        resumeBtn.setAttribute('href', 'public/resume/' + t.resumeFile);
-        resumeBtn.setAttribute('download', t.resumeFile);
-
-        document.getElementById('skillsTitle').innerHTML = t.skillsTitle;
-
-        const skillsContainer = document.getElementById('skillsContainer');
-        skillsContainer.innerHTML = '';
-        const skillIcons = ['laravel.png', 'sql.png', 'sql.png', 'git.png', 'erp.png', 'report.png', 'cms.png',
-            'pwa.png', 'figma.png', 'html.png', 'css.png', 'tailwind.png', 'js.png'
-        ];
-        t.skills.forEach((skill, index) => {
-            const iconName = skillIcons[index % skillIcons.length];
-            skillsContainer.innerHTML += `
-            <div class="bg-white/10 rounded-lg p-3 lg:p-4 flex flex-col items-center skill-item">
-                <img src="public/icons/${iconName}" class="w-8 h-8 lg:w-10 lg:h-10 mb-1 lg:mb-2">
-                <span class="text-[10px] lg:text-xs text-center">${skill}</span>
-            </div>
-        `;
-        });
-
-        document.getElementById('experienceTitle').innerHTML = t.experienceTitle;
-        const expContainer = document.getElementById('experienceContainer');
-        expContainer.innerHTML = `
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <div class="flex flex-col gap-1 mb-3">
-                <h3 class="text-base lg:text-lg font-semibold">${t.job1Title}</h3>
-                <h4 class="text-xs lg:text-sm text-gray-300">${t.job1Sub}</h4>
-                <span class="text-xs text-gray-300">${t.job1Date}</span>
-            </div>
-            <ul class="text-xs lg:text-sm text-gray-400 leading-5 lg:leading-6 list-disc list-inside space-y-1">
-                ${t.job1Details.map(detail => `<li>${detail}</li>`).join('')}
-            </ul>
-        </div>
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <div class="flex justify-between items-center mb-2 flex-wrap">
-                <h3 class="text-base lg:text-lg font-semibold">${t.job2Title}</h3>
-                <span class="text-xs text-gray-300">${t.job2Date}</span>
-            </div>
-            <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.job2Text}</p>
-        </div>
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <h3 class="text-base lg:text-lg font-semibold">${t.job3Title}</h3>
-            <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.job3Text}</p>
-        </div>
-    `;
-
-        document.getElementById('projectsTitle').innerHTML = t.projectsTitle;
-        const projectsContainer = document.getElementById('projectsContainer');
-        projectsContainer.innerHTML = `
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <div class="flex justify-between items-center mb-2 flex-wrap">
-                <h3 class="text-base lg:text-lg font-semibold">${t.project1Title}</h3>
-                <a href="https://sabaict.net/" target="_blank" class="text-xs text-blue-300 hover:underline">sabaict.net</a>
-            </div>
-            <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.project1Text}</p>
-        </div>
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <div class="flex justify-between items-center mb-2 flex-wrap">
-                <h3 class="text-base lg:text-lg font-semibold">${t.project2Title}</h3>
-                <a href="https://en.mazinoor.com/" target="_blank" class="text-xs text-blue-300 hover:underline">Mazinoor Website</a>
-            </div>
-            <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.project2Text}</p>
-        </div>
-        <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
-            <div class="flex justify-between items-center mb-2 flex-wrap">
-                <h3 class="text-base lg:text-lg font-semibold">${t.project3Title}</h3>
-                <a href="https://en.mazinoor.com/" target="_blank" class="text-xs text-blue-300 hover:underline">Mazinoor Website</a>
-            </div>
-            <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.project3Text}</p>
-        </div>
-    `;
-
-
-        const educationTitle = document.getElementById('educationTitle');
-        educationTitle.innerHTML = t.educationTitle;
-        if (currentLang === 'fa') {
-            educationTitle.style.textAlign = 'right';
-        } else {
-            educationTitle.style.textAlign = 'left';
+            document.getElementById('lbCounter').textContent = `${index + 1} / ${lightboxItems.length}`;
+            updateLightboxNavButtons();
         }
 
-        const eduContainer = document.getElementById('educationContainer');
-        eduContainer.innerHTML = `
-            <div class="bg-white/5 rounded-xl border border-white/10 p-4 lg:p-6 flex flex-col sm:flex-row items-center gap-4 lg:gap-6 hover:bg-white/10 transition-all duration-300 education-item">
-                <div class="flex-shrink-0 ${currentLang === 'fa' ? 'order-1' : 'order-1'}">
-                    <img src="public/images/noshirvani.png" alt="BNUT" class="w-16 h-16 lg:w-20 lg:h-20 object-contain rounded-xl">
-                </div>
-                <div class="flex-1 text-center ${currentLang === 'fa' ? 'sm:text-right order-2' : 'sm:text-left order-2'}">
-                    <h3 class="text-base lg:text-lg font-bold text-white">${t.edu1Title}</h3>
-                    <p class="text-purple-300 text-xs lg:text-sm font-medium mt-1">${t.edu1Degree}</p>
-                    <p class="text-gray-400 text-[10px] lg:text-xs mt-2">${t.edu1Dept}</p>
-                </div>
-                <div class="${currentLang === 'fa' ? 'text-left order-3' : 'text-right order-3'}">
-                    <p class="text-sm font-semibold text-purple-400">${t.edu1Date1}</p>
-                    <p class="text-gray-500 text-[10px] lg:text-xs mt-1">${t.edu1Date2}</p>
-                </div>
-            </div>
-            <div class="bg-white/5 rounded-xl border border-white/10 p-4 lg:p-6 flex flex-col sm:flex-row items-center gap-4 lg:gap-6 hover:bg-white/10 transition-all duration-300 education-item">
-                <div class="flex-shrink-0 ${currentLang === 'fa' ? 'order-1' : 'order-1'}">
-                    <img src="public/images/mazandaran.png" alt="University of Mazandaran" class="w-16 h-16 lg:w-20 lg:h-20 object-contain rounded-xl">
-                </div>
-                <div class="flex-1 text-center ${currentLang === 'fa' ? 'sm:text-right order-2' : 'sm:text-left order-2'}">
-                    <h3 class="text-base lg:text-lg font-bold text-white">${t.edu2Title}</h3>
-                    <p class="text-purple-300 text-xs lg:text-sm font-medium mt-1">${t.edu2Degree}</p>
-                    <p class="text-gray-400 text-[10px] lg:text-xs mt-2">${t.edu2Dept}</p>
-                </div>
-                <div class="${currentLang === 'fa' ? 'text-left order-3' : 'text-right order-3'}">
-                    <p class="text-sm font-semibold text-purple-400">${t.edu2Date1}</p>
-                    <p class="text-gray-500 text-[10px] lg:text-xs mt-1">${t.edu2Date2}</p>
-                </div>
-            </div>
-        `;
+        function lightboxNavigate(direction) {
+            if (!lightboxItems || lightboxItems.length === 0) return;
+            const newIndex = lightboxIndex + direction;
+            if (newIndex < 0 || newIndex >= lightboxItems.length) return;
+            lightboxIndex = newIndex;
+            showLightboxItem(lightboxIndex);
+        }
 
-        document.getElementById('languagesTitle').innerHTML = t.languagesTitle;
-        const langContainer = document.getElementById('languagesContainer');
-        langContainer.innerHTML = `
-        <div class="bg-white/10 rounded-xl p-4 lg:p-5 flex items-center justify-between hover:bg-white/15 transition-all duration-300 language-item">
-            <div class="flex items-center gap-3 lg:gap-4">
-                <span class="text-xl lg:text-2xl">🇮🇷</span>
-                <div>
-                    <h3 class="text-sm lg:text-lg font-semibold text-white">${t.lang1Name}</h3>
-                    <p class="text-[10px] lg:text-xs text-gray-400">${lang === 'fa' ? 'زبان مادری' : 'Native'}</p>
+        function updateLightboxNavButtons() {
+            const prevBtn = document.getElementById('lbPrev');
+            const nextBtn = document.getElementById('lbNext');
+            if (lightboxItems.length <= 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                return;
+            }
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+            prevBtn.style.opacity = lightboxIndex === 0 ? '0.3' : '1';
+            nextBtn.style.opacity = lightboxIndex === lightboxItems.length - 1 ? '0.3' : '1';
+        }
+
+        function closeLightbox(e) {
+            const lb = document.getElementById('lightbox');
+            const video = document.getElementById('lightboxVideo');
+            lb.classList.remove('active');
+            video.pause();
+            document.body.style.overflow = '';
+            if (e) e.stopPropagation();
+        }
+
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox(e);
+            if (e.key === 'ArrowLeft') lightboxNavigate(-1);
+            if (e.key === 'ArrowRight') lightboxNavigate(1);
+        });
+
+
+        function initProjectSliders() {
+            document.querySelectorAll('.project-slider').forEach(slider => {
+                const slides = slider.querySelectorAll('.slide');
+                const total = slides.length;
+                if (total <= 1) {
+                    slider.querySelectorAll('.slider-btn, .slider-dots').forEach(el => el.style.display = 'none');
+                    return;
+                }
+
+                let current = 0;
+                const wrapper = slider.querySelector('.slides-wrapper');
+                const dots = slider.querySelector('.slider-dots');
+
+                function goTo(index) {
+                    if (index < 0) index = total - 1;
+                    if (index >= total) index = 0;
+                    current = index;
+                    wrapper.style.transform = `translateX(-${current * 100}%)`;
+                    dots.querySelectorAll('.dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === current);
+                    });
+                }
+
+                slider.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
+                slider.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+
+
+                dots.innerHTML = '';
+                for (let i = 0; i < total; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `dot ${i === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => goTo(i));
+                    dots.appendChild(dot);
+                }
+
+
+                let startX = 0;
+                let isDragging = false;
+                slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                });
+                slider.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const diff = startX - e.touches[0].clientX;
+                    if (Math.abs(diff) > 30) {
+                        isDragging = false;
+                        if (diff > 0) goTo(current + 1);
+                        else goTo(current - 1);
+                    }
+                });
+                slider.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            });
+        }
+
+
+        const translations = {
+            en: {
+                nameTitle: "Ronak Amoli",
+                jobTitle: "Software Engineer | Enterprise Software | Bridging Business and Technology",
+                langBtn: "🇬🇧 EN",
+                categoriesTitle: "Categories",
+                aboutLink: "About",
+                processLink: "Process",
+                skillsLink: "Skills",
+                experienceLink: "Experience",
+                projectsLink: "Projects",
+                educationLink: "Education",
+                languagesLink: "Languages",
+                socialTitle: "Social Links",
+                aboutName: "Ronak Amoli",
+                aboutText: "Hi, I'm Ronak.<br><br>I'm a Software Engineer with over 3 years of experience designing and developing enterprise software, CMS platforms, and business applications using Laravel and modern web technologies.<br><br>My career began with ERP systems and Oracle PL/SQL, where I developed reports, queries, views, and database objects to support business operations. As my passion for software engineering grew, I transitioned into full-stack development, building internal business applications, developing and maintaining enterprise CMS platforms, and delivering corporate and client websites.<br><br>What motivates me most is solving real business challenges through technology. I enjoy translating business requirements into practical, scalable software solutions that improve workflows, increase efficiency, and create measurable value for users.<br><br>Alongside software development, I've participated in requirements gathering, business process analysis, and solution planning for industrial organizations. These experiences strengthened my interest in connecting business goals with technical solutions to build software that solves real-world problems.<br><br>I'm continuously expanding my knowledge in software architecture, enterprise systems, and business analysis while building reliable, maintainable, and user-focused applications.",
+                downloadResume: "Download Resume",
+                resumeFile: "ronak-amoli-resume-en.pdf",
+                processTitle: "How I Work",
+                step1Title: "Analyze",
+                step1Desc: "Understand needs",
+                step2Title: "Design",
+                step2Desc: "Plan & architect",
+                step3Title: "Build",
+                step3Desc: "Develop solution",
+                step4Title: "Test",
+                step4Desc: "Quality check",
+                step5Title: "Deploy",
+                step5Desc: "Launch & monitor",
+                step6Title: "Maintain",
+                step6Desc: "Improve continuously",
+                skillsTitle: "My Skills",
+                skills: [
+                    "PHP / Laravel", "Oracle PL/SQL", "MySQL", "Git & REST API",
+                    "IFS ERP / ERP Dev", "Crystal Reports", "CMS Optimization", "PWA",
+                    "Figma", "HTML5", "CSS3", "Tailwind", "JavaScript (ES6+)"
+                ],
+                experienceTitle: "My Experiences",
+                job1Title: "Full Stack Developer / ERP Developer | Sepehr Afrooz Saba (Saba ICT)",
+                job1Sub: "Working across enterprise software development, ERP reporting, CMS enhancement, and web application maintenance.",
+                job1Date: "Aug 2023 – Present (Full-time)",
+                job1Details: [
+                    "Developed and maintained enterprise applications using PHP Laravel",
+                    "Designed and implemented two internal full-stack software solutions from planning to deployment",
+                    "Maintained and enhanced existing Laravel-based systems",
+                    "Added new features and improvements to the company's CMS platform",
+                    "Redesigned corporate and client websites",
+                    "Customized website themes and user interfaces",
+                    "Worked with ERP team on reporting and business data solutions",
+                    "Developed SQL queries, Views, Functions, and reporting structures using Oracle PL/SQL",
+                    "Created business reports using Crystal Reports",
+                    "Provided technical support and maintenance for customer-facing systems and websites"
+                ],
+                job2Title: "Teacher Assistant",
+                job2Date: "Sep 2022 - Jul 2023 (Part-time)",
+                job2Text: "Teaching Assistant for Computer Networks course for two consecutive semesters.",
+                job3Title: "Technical Systems Experience (Freelance) — Afshid Khazar",
+                job3Text: "Worked with VoIP infrastructure and communication systems. Gained strong foundation in analyzing constraints, designing solutions, and delivering reliable user-facing outcomes.",
+                projectsTitle: "Selected Projects",
+                project1Title: "Rodiz — Enterprise CMS Platform",
+                project1Text: "Rodiz is a modular enterprise CMS and business management platform that I designed and developed from the ground up using Laravel. Built with scalability and maintainability in mind, it enables organizations to manage both website content and internal business operations through a unified administration panel. The platform includes dynamic page management, blogs, news, products, menus, media management, user and role management, fine-grained permissions, inventory management, order processing, reporting, and system settings. Its modular architecture allows new features and business modules to be added without disrupting existing functionality. The project focuses on clean architecture, security, performance, and an intuitive user experience, making it suitable for enterprise websites as well as internal business systems.",
+                project1Tech: "Laravel • PHP • MySQL • JavaScript • Tailwind CSS • REST API",
+                project1Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/rodiz/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/11.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/22.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/33.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/44.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/5.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/55.jpg'
+                    }
+                ],
+                project2Title: "AI Agent Interface",
+                project2Text: "Designed and developed the frontend interface for an AI-powered enterprise assistant, providing a modern and responsive conversational experience. The application communicates with backend AI services through REST APIs to send requests and display AI-generated responses in real time. Implemented features such as asynchronous API communication, loading states, conversation history, responsive layouts, and a clean chat interface focused on usability and performance. The project demonstrates frontend architecture, API integration, and user experience design for AI-powered applications.",
+                project2Tech: "JavaScript • REST API • HTML • Tailwind CSS",
+                project2Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/ai-agent/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/4.jpg'
+                    }
+                ],
+                project3Title: "Saba ICT Website Redesign",
+                project3Text: "Redesigned and redeveloped the Saba ICT corporate website, built on a custom Laravel-based CMS. Developed a modern and responsive user interface while continuously enhancing the CMS through new features, system improvements, and content management optimizations. Built scalable front-end components using Tailwind CSS and JavaScript, with a strong focus on maintainability, performance, accessibility, and user experience. The project resulted in a more consistent design system and a more efficient platform for managing and publishing content.",
+                project3Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project3Gallery: [],
+                project4Title: "Mazinoor Label Printing Web App",
+                project4Text: "Developed a full-stack internal web application for Mazinoor Industrial Group to automate carton label generation and printing workflows. Designed and implemented the backend using Laravel, while building the user interface with HTML, Tailwind CSS, and JavaScript. Created dynamic print-ready templates optimized for accurate rendering and production use. The solution streamlined label management processes, reduced manual effort and operational errors, and improved consistency across manufacturing workflows.",
+                project4Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project4Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/4.jpg'
+                    }
+                ],
+                project5Title: "Mazinoor Elite Linear Light Web App",
+                project5Text: "Internal web application developed for optimizing cutting and assembly layouts of Elite linear lights based on user‑requested lengths. Backend implemented with Laravel and front-end built using HTML, Tailwind CSS, and JavaScript. Designed to automate layout generation, reduce material waste, and improve production workflow efficiency.",
+                project5Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project5Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/5.jpg'
+                    }
+                ],
+                educationTitle: "My Educations",
+                edu1Title: "BNUT - Babol Noshirvani University",
+                edu1Degree: "B.Sc. in Computer Hardware Engineering",
+                edu1Dept: "Department of Computer Engineering",
+                edu1Date1: "2014 – 2018",
+                edu1Date2: "Sep 2014 – Sep 2018",
+                edu2Title: "University of Mazandaran of Technology",
+                edu2Degree: "M.Sc. in Computer Networks",
+                edu2Dept: "Department of Computer Engineering",
+                edu2Date1: "2021 – 2024",
+                edu2Date2: "Sep 2021 – Sep 2024",
+                languagesTitle: "Languages",
+                lang1Name: "Persian (فارسی)",
+                lang1Level: "Native Speaker",
+                lang2Name: "English",
+                lang2Level: "Fluent"
+            },
+            fa: {
+                nameTitle: "روناک آملی",
+                jobTitle: "مهندس نرم‌افزار | توسعه راهکارهای سازمانی",
+                langBtn: "🇮🇷 FA",
+                categoriesTitle: "دسته‌بندی",
+                aboutLink: "درباره من",
+                processLink: "فرآیند",
+                skillsLink: "مهارت‌ها",
+                experienceLink: "سوابق کاری",
+                projectsLink: "پروژه‌ها",
+                educationLink: "تحصیلات",
+                languagesLink: "زبان‌ها",
+                socialTitle: "شبکه‌های اجتماعی",
+                aboutName: "روناک آملی",
+                aboutText: "سلام، من روناک هستم.<br><br>من مهندس نرم‌افزار با بیش از ۳ سال تجربه در طراحی، توسعه و نگهداری نرم‌افزارهای سازمانی، سیستم‌های مدیریت محتوا (CMS) و راهکارهای مبتنی بر Laravel هستم.<br><br>فعالیت حرفه‌ای من با ERP و Oracle PL/SQL آغاز شد؛ جایی که در توسعه گزارش‌های سازمانی، طراحی Query، View و Function و پشتیبانی از فرآیندهای کسب‌وکار مشارکت داشتم. با افزایش علاقه‌ام به مهندسی نرم‌افزار، مسیر کاری‌ام به سمت توسعه Full-Stack تغییر کرد و امروز در زمینه توسعه سامانه‌های سازمانی، نگهداری و توسعه CMS اختصاصی، و طراحی وب‌سایت‌های سازمانی و مشتریان فعالیت می‌کنم.<br><br>بیشترین انگیزه من، حل مسائل واقعی کسب‌وکار با استفاده از فناوری است. از تحلیل نیازمندی‌ها و طراحی راهکار گرفته تا توسعه و استقرار نرم‌افزار، از ساخت راهکارهایی لذت می‌برم که فرآیندهای کاری را بهبود می‌دهند، بهره‌وری را افزایش می‌دهند و برای کاربران ارزش واقعی ایجاد می‌کنند.<br><br>در کنار توسعه نرم‌افزار، در تحلیل نیازمندی‌ها، بررسی فرآیندهای کسب‌وکار و ارائه راهکار برای سازمان‌های صنعتی نیز تجربه دارم. علاقه‌مندم با ایجاد ارتباط مؤثر میان نیازهای کسب‌وکار و فناوری، راهکارهایی کاربردی، پایدار و قابل توسعه ارائه دهم.<br><br>در حال حاضر نیز به‌صورت مستمر در حال یادگیری و توسعه دانش خود در حوزه‌های معماری نرم‌افزار، سیستم‌های سازمانی و تحلیل کسب‌وکار هستم تا بتوانم راهکارهای مؤثرتر و مقیاس‌پذیرتری طراحی و پیاده‌سازی کنم.",
+                downloadResume: "دانلود رزومه",
+                resumeFile: "ronak-amoli-resume-fa.pdf",
+                processTitle: "روش کار من",
+                step1Title: "تحلیل",
+                step1Desc: "درک نیازها",
+                step2Title: "طراحی",
+                step2Desc: "برنامه‌ریزی و معماری",
+                step3Title: "توسعه",
+                step3Desc: "ساخت راهکار",
+                step4Title: "تست",
+                step4Desc: "بررسی کیفیت",
+                step5Title: "استقرار",
+                step5Desc: "راه‌اندازی و پایش",
+                step6Title: "نگهداری",
+                step6Desc: "بهبود مستمر",
+                skillsTitle: "مهارت‌های من",
+                skills: [
+                    "PHP / Laravel", "Oracle PL/SQL", "MySQL", "Git & REST API",
+                    "IFS ERP / ERP Dev", "Crystal Reports", "CMS Optimization", "PWA",
+                    "Figma", "HTML5", "CSS3", "Tailwind", "JavaScript (ES6+)"
+                ],
+                experienceTitle: "سوابق کاری",
+                job1Title: "توسعه‌دهنده Full Stack / توسعه‌دهنده ERP | سپهر افروز صبا",
+                job1Sub: "فعالیت در زمینه توسعه نرم‌افزارهای سازمانی، گزارشات ERP، بهبود CMS و نگهداری اپلیکیشن‌های وب",
+                job1Date: "مرداد ۱۴۰۲ – اکنون (تمام وقت)",
+                job1Details: [
+                    "توسعه و نگهداری نرم‌افزارهای سازمانی مبتنی بر PHP Laravel",
+                    "طراحی و پیاده‌سازی دو سامانه Full Stack داخلی از تحلیل تا استقرار",
+                    "توسعه و پشتیبانی نرم‌افزارهای موجود و رفع اشکالات فنی",
+                    "توسعه قابلیت‌های جدید و بهینه‌سازی CMS سازمانی",
+                    "بازطراحی وب‌سایت شرکت و وب‌سایت مشتریان",
+                    "طراحی و سفارشی‌سازی قالب‌ها و رابط‌های کاربری",
+                    "همکاری با تیم ERP در توسعه گزارشات سازمانی",
+                    "طراحی Query، View و Function در Oracle PL/SQL",
+                    "توسعه گزارشات با Crystal Reports",
+                    "پشتیبانی فنی سامانه‌ها و وب‌سایت‌های مشتریان"
+                ],
+                job2Title: "دستیار آموزشی",
+                job2Date: "شهریور ۱۴۰۱ - تیر ۱۴۰۲ (پاره وقت)",
+                job2Text: "دستیار آموزشی درس شبکه‌های کامپیوتری برای دو ترم متوالی",
+                job3Title: "تجربه سیستم‌های فنی (فریلنس) — افشید خزر",
+                job3Text: "کار با زیرساخت VoIP و سیستم‌های ارتباطی. به دست آوردن پایه قوی در تحلیل محدودیت‌ها، طراحی راهکارها و ارائه نتایج قابل اعتماد برای کاربران.",
+                projectsTitle: "پروژه های منتخب",
+                project1Title: "رودیز — پلتفرم سازمانی CMS",
+                project1Text: "رودیز یک پلتفرم ماژولار مدیریت محتوا و سیستم مدیریت کسب‌وکار است که از صفر با Laravel طراحی و توسعه داده شده است. این پلتفرم با تمرکز بر مقیاس‌پذیری و قابلیت نگهداری ساخته شده و به سازمان‌ها امکان مدیریت همزمان محتوای وب‌سایت و عملیات داخلی کسب‌وکار را از طریق یک پنل مدیریت یکپارچه می‌دهد. این پلتفرم شامل مدیریت صفحات داینامیک، وبلاگ، اخبار، محصولات، منوها، مدیریت رسانه، مدیریت کاربران و نقش‌ها، مجوزهای دقیق، مدیریت موجودی، پردازش سفارشات، گزارش‌گیری و تنظیمات سیستم است. معماری ماژولار آن امکان افزودن ویژگی‌ها و ماژول‌های جدید کسب‌وکار را بدون اختلال در عملکرد موجود فراهم می‌کند. این پروژه بر معماری تمیز، امنیت، عملکرد و تجربه کاربری شهودی تمرکز دارد و برای وب‌سایت‌های سازمانی و همچنین سیستم‌های داخلی کسب‌وکار مناسب است.",
+                project1Tech: "Laravel • PHP • MySQL • JavaScript • Tailwind CSS • REST API",
+                project1Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/rodiz/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/11.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/22.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/33.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/44.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/5.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/rodiz/55.jpg'
+                    }
+                ],
+                project2Title: "رابط کاربری دستیار هوش مصنوعی",
+                project2Text: "طراحی و توسعه رابط کاربری برای یک دستیار سازمانی مبتنی بر هوش مصنوعی، ارائه‌دهنده تجربه مکالمه‌ای مدرن و واکنش‌گرا. این برنامه از طریق REST API با سرویس‌های هوش مصنوعی ارتباط برقرار می‌کند تا درخواست‌ها را ارسال و پاسخ‌های تولید شده توسط هوش مصنوعی را به صورت لحظه‌ای نمایش دهد. ویژگی‌هایی مانند ارتباط ناهمگام API، وضعیت‌های بارگذاری، تاریخچه مکالمات، چیدمان واکنش‌گرا و رابط گفتگوی تمیز با تمرکز بر قابلیت استفاده و عملکرد پیاده‌سازی شده است. این پروژه معماری فرانت‌اند، یکپارچه‌سازی API و طراحی تجربه کاربری برای برنامه‌های مبتنی بر هوش مصنوعی را به نمایش می‌گذارد.",
+                project2Tech: "JavaScript • REST API • HTML • Tailwind CSS",
+                project2Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/ai-agent/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/ai-agent/4.jpg'
+                    }
+                ],
+                project3Title: "بازطراحی وب‌سایت صبا آی‌سی‌تی (Saba ICT)",
+                project3Text: "بازطراحی و توسعه وب‌سایت سازمانی صبا ICT بر بستر یک CMS اختصاصی مبتنی بر Laravel. طراحی و پیاده‌سازی رابط کاربری مدرن و واکنش‌گرا، همراه با توسعه مستمر قابلیت‌های جدید، بهبود ساختار سیستم و بهینه‌سازی فرآیند مدیریت محتوا. توسعه کامپوننت‌های مقیاس‌پذیر Front-End با استفاده از Tailwind CSS و JavaScript با تمرکز بر قابلیت نگهداری، کارایی، دسترس‌پذیری و تجربه کاربری. این پروژه منجر به ایجاد یک سیستم طراحی منسجم‌تر و بستری کارآمدتر برای مدیریت و انتشار محتوا شد.",
+                project3Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project3Gallery: [],
+                project4Title: "وب‌اپلیکیشن چاپ لیبل مازی‌نور",
+                project4Text: "توسعه یک سامانه داخلی Full Stack برای گروه صنعتی مازینور با هدف مکانیزه‌سازی فرآیند تولید و چاپ لیبل‌های کارتن. طراحی و پیاده‌سازی بخش Backend با Laravel و توسعه رابط کاربری با HTML، Tailwind CSS و JavaScript انجام شد. همچنین قالب‌های چاپی داینامیک و آماده چاپ برای نمایش دقیق اطلاعات در فرآیند تولید طراحی گردید. این سامانه باعث بهینه‌سازی مدیریت لیبل‌ها، کاهش فعالیت‌های دستی و خطاهای عملیاتی، و افزایش یکپارچگی فرآیندهای تولید شد.",
+                project4Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project4Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-label/4.jpg'
+                    }
+                ],
+                project5Title: "وب‌اپلیکیشن بهینه‌سازی چیدمان چراغ‌های خطی Elite مازی‌نور",
+                project5Text: "یک وب‌اپلیکیشن داخلی که برای بهینه‌سازی چیدمان برش و مونتاژ چراغ‌های خطی «Elite» بر اساس طول‌های درخواستی کاربر توسعه یافته است. بخش بک‌اند با Laravel و فرانت‌اند با استفاده از HTML، Tailwind CSS و JavaScript پیاده‌سازی شده‌اند. این سامانه با هدف خودکارسازی تولید چیدمان، کاهش ضایعات مواد اولیه و افزایش بهره‌وری فرآیند تولید طراحی شده است.",
+                project5Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
+                project5Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/mazinoor-elite/5.jpg'
+                    }
+                ],
+                educationTitle: "تحصیلات",
+                edu1Title: "دانشگاه صنعتی نوشیروانی بابل",
+                edu1Degree: "کارشناسی مهندسی سخت‌افزار کامپیوتر",
+                edu1Dept: "دانشکده مهندسی کامپیوتر",
+                edu1Date1: "۱۳۹۳ – ۱۳۹۷",
+                edu1Date2: "شهریور ۱۳۹۳ – شهریور ۱۳۹۷",
+                edu2Title: "دانشگاه مازندران(بابلسر)",
+                edu2Degree: "کارشناسی ارشد شبکه‌های کامپیوتری",
+                edu2Dept: "دانشکده مهندسی کامپیوتر",
+                edu2Date1: "۱۴۰۰ – ۱۴۰۳",
+                edu2Date2: "شهریور ۱۴۰۰ – شهریور ۱۴۰۳",
+                languagesTitle: "زبان‌ها",
+                lang1Name: "فارسی",
+                lang1Level: "زبان مادری",
+                lang2Name: "انگلیسی",
+                lang2Level: "مسلط"
+            }
+        };
+
+        let currentLang = 'en';
+        let projectsData = [];
+
+        function renderProjectSlider(galleryItems, projectId) {
+            if (!galleryItems || galleryItems.length === 0) return '';
+
+            const hasMultiple = galleryItems.length > 1;
+
+            let slidesHtml = '';
+            galleryItems.forEach((item, idx) => {
+                if (item.type === 'image') {
+                    slidesHtml += `
+                        <div class="slide" onclick="openLightbox('${projectId}', ${idx})">
+                            <img src="${item.src}" alt="Project screenshot" loading="lazy" />
+                        </div>
+                    `;
+                } else if (item.type === 'video') {
+                    slidesHtml += `
+                        <div class="slide" onclick="openLightbox('${projectId}', ${idx})">
+                            <video src="${item.src}" muted playsinline loading="lazy"></video>
+                        </div>
+                    `;
+                }
+            });
+
+            return `
+                <div class="project-slider">
+                    <div class="slides-wrapper" style="transform: translateX(0%);">
+                        ${slidesHtml}
+                    </div>
+                    ${hasMultiple ? `
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots"></div>
+                    ` : ''}
                 </div>
-            </div>
-            <span class="text-purple-300 text-xs lg:text-sm font-medium">${t.lang1Level}</span>
-        </div>
-        <div class="bg-white/10 rounded-xl p-4 lg:p-5 flex items-center justify-between hover:bg-white/15 transition-all duration-300 language-item">
-            <div class="flex items-center gap-3 lg:gap-4">
-                <span class="text-xl lg:text-2xl">🇬🇧</span>
-                <div>
-                    <h3 class="text-sm lg:text-lg font-semibold text-white">${t.lang2Name}</h3>
-                    <p class="text-[10px] lg:text-xs text-gray-400">${lang === 'fa' ? 'تسلط کاری حرفه‌ای' : 'Professional Working Proficiency'}</p>
+            `;
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+
+            localStorage.setItem('preferredLanguage', lang);
+
+            if (lang === 'fa') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.body.classList.add('farsi-mode');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.body.classList.remove('farsi-mode');
+            }
+
+
+            document.getElementById('langSwitchBtn').innerHTML = t.langBtn;
+            document.getElementById('nameTitle').innerHTML = t.nameTitle;
+            document.getElementById('jobTitle').innerHTML = t.jobTitle;
+
+
+            document.querySelectorAll('#mobileCategoriesTitle, #desktopCategoriesTitle').forEach(el => {
+                if (el) el.innerHTML = t.categoriesTitle;
+            });
+            document.querySelectorAll('#mobileSocialTitle, #desktopSocialTitle').forEach(el => {
+                if (el) el.innerHTML = t.socialTitle;
+            });
+
+            document.querySelectorAll('#mobileAboutLink, #desktopAboutLink').forEach(el => {
+                if (el) el.innerHTML = t.aboutLink;
+            });
+            document.querySelectorAll('#mobileProcessLink, #desktopProcessLink').forEach(el => {
+                if (el) el.innerHTML = t.processLink;
+            });
+            document.querySelectorAll('#mobileSkillsLink, #desktopSkillsLink').forEach(el => {
+                if (el) el.innerHTML = t.skillsLink;
+            });
+            document.querySelectorAll('#mobileExperienceLink, #desktopExperienceLink').forEach(el => {
+                if (el) el.innerHTML = t.experienceLink;
+            });
+            document.querySelectorAll('#mobileProjectsLink, #desktopProjectsLink').forEach(el => {
+                if (el) el.innerHTML = t.projectsLink;
+            });
+            document.querySelectorAll('#mobileEducationLink, #desktopEducationLink').forEach(el => {
+                if (el) el.innerHTML = t.educationLink;
+            });
+            document.querySelectorAll('#mobileLanguagesLink, #desktopLanguagesLink').forEach(el => {
+                if (el) el.innerHTML = t.languagesLink;
+            });
+
+
+            document.getElementById('aboutName').innerHTML = t.aboutName;
+            document.getElementById('aboutText').innerHTML = t.aboutText;
+
+            const aboutBox = document.querySelector('#about .bg-white\\/10');
+            if (aboutBox) {
+                aboutBox.style.border = 'none';
+                aboutBox.style.boxShadow = 'none';
+                aboutBox.style.outline = 'none';
+            }
+
+
+            const resumeBtn = document.getElementById('downloadResumeBtn');
+            resumeBtn.innerHTML = t.downloadResume;
+            resumeBtn.setAttribute('href', 'resume/' + t.resumeFile);
+            resumeBtn.setAttribute('download', t.resumeFile);
+
+
+            document.getElementById('processTitle').innerHTML = t.processTitle;
+            const processTitle = document.getElementById('processTitle');
+            processTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
+
+            document.getElementById('step1Title').innerHTML = t.step1Title;
+            document.getElementById('step1Desc').innerHTML = t.step1Desc;
+            document.getElementById('step2Title').innerHTML = t.step2Title;
+            document.getElementById('step2Desc').innerHTML = t.step2Desc;
+            document.getElementById('step3Title').innerHTML = t.step3Title;
+            document.getElementById('step3Desc').innerHTML = t.step3Desc;
+            document.getElementById('step4Title').innerHTML = t.step4Title;
+            document.getElementById('step4Desc').innerHTML = t.step4Desc;
+            document.getElementById('step5Title').innerHTML = t.step5Title;
+            document.getElementById('step5Desc').innerHTML = t.step5Desc;
+            document.getElementById('step6Title').innerHTML = t.step6Title;
+            document.getElementById('step6Desc').innerHTML = t.step6Desc;
+
+            document.getElementById('step1TitleMobile').innerHTML = t.step1Title;
+            document.getElementById('step1DescMobile').innerHTML = t.step1Desc;
+            document.getElementById('step2TitleMobile').innerHTML = t.step2Title;
+            document.getElementById('step2DescMobile').innerHTML = t.step2Desc;
+            document.getElementById('step3TitleMobile').innerHTML = t.step3Title;
+            document.getElementById('step3DescMobile').innerHTML = t.step3Desc;
+            document.getElementById('step4TitleMobile').innerHTML = t.step4Title;
+            document.getElementById('step4DescMobile').innerHTML = t.step4Desc;
+            document.getElementById('step5TitleMobile').innerHTML = t.step5Title;
+            document.getElementById('step5DescMobile').innerHTML = t.step5Desc;
+            document.getElementById('step6TitleMobile').innerHTML = t.step6Title;
+            document.getElementById('step6DescMobile').innerHTML = t.step6Desc;
+
+            const mobileArrows = ['mobileArrow1', 'mobileArrow2', 'mobileArrow3', 'mobileArrow4', 'mobileArrow5'];
+            mobileArrows.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerHTML = lang === 'fa' ? '↑' : '↓';
+                }
+            });
+
+
+            document.getElementById('skillsTitle').innerHTML = t.skillsTitle;
+            const skillsTitle = document.getElementById('skillsTitle');
+            skillsTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
+
+            const skillsContainer = document.getElementById('skillsContainer');
+            skillsContainer.innerHTML = '';
+            const skillIcons = ['laravel.png', 'sql.png', 'sql.png', 'git.png', 'erp.png', 'report.png', 'cms.png',
+                'pwa.png', 'figma.png', 'html.png', 'css.png', 'tailwind.png', 'js.png'
+            ];
+            t.skills.forEach((skill, index) => {
+                const iconName = skillIcons[index % skillIcons.length];
+                skillsContainer.innerHTML += `
+                    <div class="bg-white/10 rounded-lg p-3 lg:p-4 flex flex-col items-center skill-item">
+                        <img src="icons/${iconName}" class="w-8 h-8 lg:w-10 lg:h-10 mb-1 lg:mb-2">
+                        <span class="text-[10px] lg:text-xs text-center">${skill}</span>
+                    </div>
+                `;
+            });
+
+
+            document.getElementById('experienceTitle').innerHTML = t.experienceTitle;
+            const expTitle = document.getElementById('experienceTitle');
+            expTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
+
+            const expContainer = document.getElementById('experienceContainer');
+            expContainer.innerHTML = `
+                <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
+                    <div class="flex flex-col gap-1 mb-3">
+                        <h3 class="text-base lg:text-lg font-semibold">${t.job1Title}</h3>
+                        <h4 class="text-xs lg:text-sm text-gray-300">${t.job1Sub}</h4>
+                        <span class="text-xs text-gray-300">${t.job1Date}</span>
+                    </div>
+                    <ul class="text-xs lg:text-sm text-gray-400 leading-5 lg:leading-6 list-disc list-inside space-y-1">
+                        ${t.job1Details.map(detail => `<li>${detail}</li>`).join('')}
+                    </ul>
                 </div>
-            </div>
-            <span class="text-purple-300 text-xs lg:text-sm font-medium">${t.lang2Level}</span>
-        </div>
-    `;
-    }
+                <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
+                    <div class="flex justify-between items-center mb-2 flex-wrap">
+                        <h3 class="text-base lg:text-lg font-semibold">${t.job2Title}</h3>
+                        <span class="text-xs text-gray-300">${t.job2Date}</span>
+                    </div>
+                    <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.job2Text}</p>
+                </div>
+                <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
+                    <h3 class="text-base lg:text-lg font-semibold">${t.job3Title}</h3>
+                    <p class="text-xs lg:text-sm text-gray-400 leading-6">${t.job3Text}</p>
+                </div>
+            `;
 
-    function toggleMenu(btn) {
-        const menu = btn.nextElementSibling;
-        const icon = btn.querySelector('i');
-        menu.classList.toggle('open');
-        icon.classList.toggle('rotate-180');
-    }
 
-    function toggleMobileMenu(btn) {
-        const menu = btn.nextElementSibling;
-        const icon = btn.querySelector('i');
-        menu.classList.toggle('open');
-        icon.classList.toggle('rotate-180');
-    }
+            document.getElementById('projectsTitle').innerHTML = t.projectsTitle;
+            const projTitle = document.getElementById('projectsTitle');
+            projTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
 
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileSidebar = document.getElementById('mobileSidebar');
-    const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+            const projectsContainer = document.getElementById('projectsContainer');
 
-    function toggleMobileSidebar() {
-        mobileSidebar.classList.toggle('open');
-        if (mobileSidebar.classList.contains('open')) {
-            mobileMenuIcon.classList.remove('fa-bars');
-            mobileMenuIcon.classList.add('fa-times');
-        } else {
+
+            projectsData = [{
+                id: 'project1',
+                title: t.project1Title,
+                text: t.project1Text,
+                tech: t.project1Tech,
+                gallery: t.project1Gallery || [],
+                link: null
+            }, {
+                id: 'project2',
+                title: t.project2Title,
+                text: t.project2Text,
+                tech: t.project2Tech,
+                gallery: t.project2Gallery || [],
+                link: null
+            }, {
+                id: 'project3',
+                title: t.project3Title,
+                text: t.project3Text,
+                tech: t.project3Tech,
+                gallery: t.project3Gallery || [],
+                link: 'https://sabaict.net/'
+            }, {
+                id: 'project4',
+                title: t.project4Title,
+                text: t.project4Text,
+                tech: t.project4Tech,
+                gallery: t.project4Gallery || [],
+                link: 'https://en.mazinoor.com/'
+            }, {
+                id: 'project5',
+                title: t.project5Title,
+                text: t.project5Text,
+                tech: t.project5Tech,
+                gallery: t.project5Gallery || [],
+                link: 'https://en.mazinoor.com/'
+            }];
+
+            projectsContainer.innerHTML = '';
+            projectsData.forEach(project => {
+                const galleryHtml = renderProjectSlider(project.gallery, project.id);
+
+                const linkHtml = project.link ?
+                    `<a href="${project.link}" target="_blank" class="text-xs text-blue-300 hover:underline">${project.link.replace('https://', '')}</a>` :
+                    '';
+
+                const techHtml = project.tech ?
+                    `<div class="mt-2 flex flex-wrap gap-1">${project.tech.split('•').map(tag => `<span class="tech-tag">${tag.trim()}</span>`).join('')}</div>` :
+                    '';
+
+                projectsContainer.innerHTML += `
+                    <div class="bg-white/5 p-4 lg:p-5 rounded-xl transition hover:bg-white/10 cursor-pointer experience-item">
+                        <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                            <h3 class="text-base lg:text-lg font-semibold">${project.title}</h3>
+                            ${linkHtml}
+                        </div>
+                        <p class="text-xs lg:text-sm text-gray-400 leading-6">${project.text}</p>
+                        ${techHtml}
+                        ${galleryHtml}
+                    </div>
+                `;
+            });
+
+
+            setTimeout(initProjectSliders, 50);
+
+
+            document.getElementById('educationTitle').innerHTML = t.educationTitle;
+            const eduTitle = document.getElementById('educationTitle');
+            eduTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
+
+            const eduContainer = document.getElementById('educationContainer');
+            eduContainer.innerHTML = `
+                <div class="bg-white/5 rounded-xl border border-white/10 p-4 lg:p-6 flex flex-col sm:flex-row items-center gap-4 lg:gap-6 hover:bg-white/10 transition-all duration-300 education-item">
+                    <div class="flex-shrink-0 ${currentLang === 'fa' ? 'order-1' : 'order-1'}">
+                        <img src="images/noshirvani.png" alt="BNUT" class="w-16 h-16 lg:w-20 lg:h-20 object-contain rounded-xl">
+                    </div>
+                    <div class="flex-1 text-center ${currentLang === 'fa' ? 'sm:text-right order-2' : 'sm:text-left order-2'}">
+                        <h3 class="text-base lg:text-lg font-bold text-white">${t.edu1Title}</h3>
+                        <p class="text-purple-300 text-xs lg:text-sm font-medium mt-1">${t.edu1Degree}</p>
+                        <p class="text-gray-400 text-[10px] lg:text-xs mt-2">${t.edu1Dept}</p>
+                    </div>
+                    <div class="${currentLang === 'fa' ? 'text-left order-3' : 'text-right order-3'}">
+                        <p class="text-sm font-semibold text-purple-400">${t.edu1Date1}</p>
+                        <p class="text-gray-500 text-[10px] lg:text-xs mt-1">${t.edu1Date2}</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 rounded-xl border border-white/10 p-4 lg:p-6 flex flex-col sm:flex-row items-center gap-4 lg:gap-6 hover:bg-white/10 transition-all duration-300 education-item">
+                    <div class="flex-shrink-0 ${currentLang === 'fa' ? 'order-1' : 'order-1'}">
+                        <img src="images/mazandaran.png" alt="University of Mazandaran" class="w-16 h-16 lg:w-20 lg:h-20 object-contain rounded-xl">
+                    </div>
+                    <div class="flex-1 text-center ${currentLang === 'fa' ? 'sm:text-right order-2' : 'sm:text-left order-2'}">
+                        <h3 class="text-base lg:text-lg font-bold text-white">${t.edu2Title}</h3>
+                        <p class="text-purple-300 text-xs lg:text-sm font-medium mt-1">${t.edu2Degree}</p>
+                        <p class="text-gray-400 text-[10px] lg:text-xs mt-2">${t.edu2Dept}</p>
+                    </div>
+                    <div class="${currentLang === 'fa' ? 'text-left order-3' : 'text-right order-3'}">
+                        <p class="text-sm font-semibold text-purple-400">${t.edu2Date1}</p>
+                        <p class="text-gray-500 text-[10px] lg:text-xs mt-1">${t.edu2Date2}</p>
+                    </div>
+                </div>
+            `;
+
+
+            document.getElementById('languagesTitle').innerHTML = t.languagesTitle;
+            const langTitle = document.getElementById('languagesTitle');
+            langTitle.className = 'text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 ' + (lang === 'fa' ? 'text-right' :
+                'text-left');
+
+            const langContainer = document.getElementById('languagesContainer');
+            langContainer.innerHTML = `
+                <div class="bg-white/10 rounded-xl p-4 lg:p-5 flex items-center justify-between hover:bg-white/15 transition-all duration-300 language-item">
+                    <div class="flex items-center gap-3 lg:gap-4">
+                        <span class="text-xl lg:text-2xl">🇮🇷</span>
+                        <div>
+                            <h3 class="text-sm lg:text-lg font-semibold text-white">${t.lang1Name}</h3>
+                            <p class="text-[10px] lg:text-xs text-gray-400">${lang === 'fa' ? 'زبان مادری' : 'Native'}</p>
+                        </div>
+                    </div>
+                    <span class="text-purple-300 text-xs lg:text-sm font-medium">${t.lang1Level}</span>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 lg:p-5 flex items-center justify-between hover:bg-white/15 transition-all duration-300 language-item">
+                    <div class="flex items-center gap-3 lg:gap-4">
+                        <span class="text-xl lg:text-2xl">🇬🇧</span>
+                        <div>
+                            <h3 class="text-sm lg:text-lg font-semibold text-white">${t.lang2Name}</h3>
+                            <p class="text-[10px] lg:text-xs text-gray-400">${lang === 'fa' ? 'تسلط کاری حرفه‌ای' : 'Professional Working Proficiency'}</p>
+                        </div>
+                    </div>
+                    <span class="text-purple-300 text-xs lg:text-sm font-medium">${t.lang2Level}</span>
+                </div>
+            `;
+        }
+
+
+        function toggleMenu(btn) {
+            const menu = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            menu.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function toggleMobileMenu(btn) {
+            const menu = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            menu.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        }
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+
+        function toggleMobileSidebar() {
+            mobileSidebar.classList.toggle('open');
+            if (mobileSidebar.classList.contains('open')) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            } else {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+        }
+
+        function closeMobileMenu() {
+            mobileSidebar.classList.remove('open');
             mobileMenuIcon.classList.remove('fa-times');
             mobileMenuIcon.classList.add('fa-bars');
         }
-    }
 
-    function closeMobileMenu() {
-        mobileSidebar.classList.remove('open');
-        mobileMenuIcon.classList.remove('fa-times');
-        mobileMenuIcon.classList.add('fa-bars');
-    }
+        mobileMenuBtn.addEventListener('click', toggleMobileSidebar);
 
-    mobileMenuBtn.addEventListener('click', toggleMobileSidebar);
-
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth < 1024) {
-            if (!mobileSidebar.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                closeMobileMenu();
-            }
-        }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                const main = document.querySelector('main');
-                const sectionOffset = targetSection.offsetTop;
-                main.scrollTo({
-                    top: sectionOffset - 20,
-                    behavior: 'smooth'
-                });
-                if (window.innerWidth < 1024) {
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 1024) {
+                if (!mobileSidebar.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
                     closeMobileMenu();
-                    const parentMenu = this.closest('.menu-collapse');
-                    if (parentMenu) {
-                        parentMenu.classList.remove('open');
-                        const btn = parentMenu.previousElementSibling;
-                        const icon = btn.querySelector('i');
-                        icon.classList.remove('rotate-180');
-                    }
                 }
             }
         });
-    });
 
-    function handleMenuState() {
-        const isDesktop = window.innerWidth >= 1024;
-        const menus = document.querySelectorAll('.menu-collapse');
-        const icons = document.querySelectorAll('aside i, #mobileSidebar i');
-        if (isDesktop) {
-            menus.forEach(m => m.classList.add('open'));
-            icons.forEach(i => i.classList.remove('rotate-180'));
-            closeMobileMenu();
-        } else {
-            const desktopMenus = document.querySelectorAll('aside .menu-collapse');
-            desktopMenus.forEach(m => m.classList.remove('open'));
-            const desktopIcons = document.querySelectorAll('aside i');
-            desktopIcons.forEach(i => i.classList.add('rotate-180'));
-        }
-    }
-
-
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang && (savedLang === 'en' || savedLang === 'fa')) {
-        setLanguage(savedLang);
-    } else {
-        setLanguage('en');
-    }
-
-    document.getElementById('langSwitchBtn').addEventListener('click', () => {
-        const newLang = currentLang === 'en' ? 'fa' : 'en';
-        setLanguage(newLang);
-    });
-
-    window.addEventListener('load', handleMenuState);
-    window.addEventListener('resize', handleMenuState);
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const main = document.querySelector('main');
-        main.addEventListener('wheel', function(e) {
-            if (main.scrollHeight > main.clientHeight) {
-                e.stopPropagation();
-            }
-        }, {
-            passive: true
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const main = document.querySelector('main');
+                    const sectionOffset = targetSection.offsetTop;
+                    main.scrollTo({
+                        top: sectionOffset - 20,
+                        behavior: 'smooth'
+                    });
+                    if (window.innerWidth < 1024) {
+                        closeMobileMenu();
+                        const parentMenu = this.closest('.menu-collapse');
+                        if (parentMenu) {
+                            parentMenu.classList.remove('open');
+                            const btn = parentMenu.previousElementSibling;
+                            const icon = btn.querySelector('i');
+                            icon.classList.remove('rotate-180');
+                        }
+                    }
+                }
+            });
         });
-    });
+
+        function handleMenuState() {
+            const isDesktop = window.innerWidth >= 1024;
+            const menus = document.querySelectorAll('.menu-collapse');
+            const icons = document.querySelectorAll('aside i, #mobileSidebar i');
+            if (isDesktop) {
+                menus.forEach(m => m.classList.add('open'));
+                icons.forEach(i => i.classList.remove('rotate-180'));
+                closeMobileMenu();
+            } else {
+                const desktopMenus = document.querySelectorAll('aside .menu-collapse');
+                desktopMenus.forEach(m => m.classList.remove('open'));
+                const desktopIcons = document.querySelectorAll('aside i');
+                desktopIcons.forEach(i => i.classList.add('rotate-180'));
+            }
+        }
+
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && (savedLang === 'en' || savedLang === 'fa')) {
+            setLanguage(savedLang);
+        } else {
+            setLanguage('en');
+        }
+
+        document.getElementById('langSwitchBtn').addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'fa' : 'en';
+            setLanguage(newLang);
+        });
+
+        window.addEventListener('load', function() {
+            handleMenuState();
+            setTimeout(initProjectSliders, 100);
+        });
+        window.addEventListener('resize', handleMenuState);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const main = document.querySelector('main');
+            main.addEventListener('wheel', function(e) {
+                if (main.scrollHeight > main.clientHeight) {
+                    e.stopPropagation();
+                }
+            }, {
+                passive: true
+            });
+        });
     </script>
 </body>
 
