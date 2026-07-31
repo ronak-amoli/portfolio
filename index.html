@@ -9,6 +9,7 @@
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <base href="public/" />
+    <!-- <base href="/" /> -->
     <style>
         @font-face {
             font-family: "Lato";
@@ -1134,62 +1135,108 @@
 
 
         function initProjectSliders() {
+           
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+
             document.querySelectorAll('.project-slider').forEach(slider => {
                 const slides = slider.querySelectorAll('.slide');
                 const total = slides.length;
+
                 if (total <= 1) {
-                    slider.querySelectorAll('.slider-btn, .slider-dots').forEach(el => el.style.display = 'none');
+                    const btns = slider.querySelectorAll('.slider-btn, .slider-dots');
+                    btns.forEach(el => el.style.display = 'none');
                     return;
                 }
 
                 let current = 0;
                 const wrapper = slider.querySelector('.slides-wrapper');
-                const dots = slider.querySelector('.slider-dots');
+                let dots = slider.querySelector('.slider-dots');
+
+                if (!dots) {
+                    dots = document.createElement('div');
+                    dots.className = 'slider-dots';
+                    slider.appendChild(dots);
+                }
 
                 function goTo(index) {
                     if (index < 0) index = total - 1;
                     if (index >= total) index = 0;
                     current = index;
-                    wrapper.style.transform = `translateX(-${current * 100}%)`;
-                    dots.querySelectorAll('.dot').forEach((dot, i) => {
+
+                    
+                    const offset = isRTL ? (current * 100) : -(current * 100);
+                    wrapper.style.transform = 'translateX(' + offset + '%)';
+
+                    const allDots = dots.querySelectorAll('.dot');
+                    allDots.forEach((dot, i) => {
                         dot.classList.toggle('active', i === current);
                     });
                 }
 
-                slider.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
-                slider.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+              
+                const prevBtn = slider.querySelector('.prev');
+                const nextBtn = slider.querySelector('.next');
 
+                if (prevBtn) {
+                    const newPrev = prevBtn.cloneNode(true);
+                    prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+                    newPrev.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        goTo(current - 1);
+                    });
+                }
 
+                if (nextBtn) {
+                    const newNext = nextBtn.cloneNode(true);
+                    nextBtn.parentNode.replaceChild(newNext, nextBtn);
+                    newNext.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        goTo(current + 1);
+                    });
+                }
+
+               
                 dots.innerHTML = '';
                 for (let i = 0; i < total; i++) {
                     const dot = document.createElement('button');
-                    dot.className = `dot ${i === 0 ? 'active' : ''}`;
-                    dot.addEventListener('click', () => goTo(i));
+                    dot.className = 'dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        goTo(i);
+                    });
                     dots.appendChild(dot);
                 }
 
-
+               
                 let startX = 0;
                 let isDragging = false;
-                slider.addEventListener('touchstart', (e) => {
+
+                slider.addEventListener('touchstart', function(e) {
                     startX = e.touches[0].clientX;
                     isDragging = true;
                 });
-                slider.addEventListener('touchmove', (e) => {
+
+                slider.addEventListener('touchmove', function(e) {
                     if (!isDragging) return;
                     const diff = startX - e.touches[0].clientX;
                     if (Math.abs(diff) > 30) {
                         isDragging = false;
-                        if (diff > 0) goTo(current + 1);
-                        else goTo(current - 1);
+                      
+                        if (isRTL) {
+                            if (diff < 0) goTo(current + 1);
+                            else goTo(current - 1);
+                        } else {
+                            if (diff > 0) goTo(current + 1);
+                            else goTo(current - 1);
+                        }
                     }
                 });
-                slider.addEventListener('touchend', () => {
+
+                slider.addEventListener('touchend', function() {
                     isDragging = false;
                 });
             });
         }
-
 
         const translations = {
             en: {
@@ -1317,7 +1364,31 @@
                 project3Title: "Saba ICT Website Redesign",
                 project3Text: "Redesigned and redeveloped the Saba ICT corporate website, built on a custom Laravel-based CMS. Developed a modern and responsive user interface while continuously enhancing the CMS through new features, system improvements, and content management optimizations. Built scalable front-end components using Tailwind CSS and JavaScript, with a strong focus on maintainability, performance, accessibility, and user experience. The project resulted in a more consistent design system and a more efficient platform for managing and publishing content.",
                 project3Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
-                project3Gallery: [],
+                project3Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/sabaict/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/5.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/6.jpg'
+                    }
+                ],
                 project4Title: "Mazinoor Label Printing Web App",
                 project4Text: "Developed a full-stack internal web application for Mazinoor Industrial Group to automate carton label generation and printing workflows. Designed and implemented the backend using Laravel, while building the user interface with HTML, Tailwind CSS, and JavaScript. Created dynamic print-ready templates optimized for accurate rendering and production use. The solution streamlined label management processes, reduced manual effort and operational errors, and improved consistency across manufacturing workflows.",
                 project4Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
@@ -1504,7 +1575,31 @@
                 project3Title: "بازطراحی وب‌سایت صبا آی‌سی‌تی (Saba ICT)",
                 project3Text: "بازطراحی و توسعه وب‌سایت سازمانی صبا ICT بر بستر یک CMS اختصاصی مبتنی بر Laravel. طراحی و پیاده‌سازی رابط کاربری مدرن و واکنش‌گرا، همراه با توسعه مستمر قابلیت‌های جدید، بهبود ساختار سیستم و بهینه‌سازی فرآیند مدیریت محتوا. توسعه کامپوننت‌های مقیاس‌پذیر Front-End با استفاده از Tailwind CSS و JavaScript با تمرکز بر قابلیت نگهداری، کارایی، دسترس‌پذیری و تجربه کاربری. این پروژه منجر به ایجاد یک سیستم طراحی منسجم‌تر و بستری کارآمدتر برای مدیریت و انتشار محتوا شد.",
                 project3Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
-                project3Gallery: [],
+                project3Gallery: [{
+                        type: 'image',
+                        src: 'images/projects/sabaict/1.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/2.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/3.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/4.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/5.jpg'
+                    },
+                    {
+                        type: 'image',
+                        src: 'images/projects/sabaict/6.jpg'
+                    }
+                ],
                 project4Title: "وب‌اپلیکیشن چاپ لیبل مازی‌نور",
                 project4Text: "توسعه یک سامانه داخلی Full Stack برای گروه صنعتی مازینور با هدف مکانیزه‌سازی فرآیند تولید و چاپ لیبل‌های کارتن. طراحی و پیاده‌سازی بخش Backend با Laravel و توسعه رابط کاربری با HTML، Tailwind CSS و JavaScript انجام شد. همچنین قالب‌های چاپی داینامیک و آماده چاپ برای نمایش دقیق اطلاعات در فرآیند تولید طراحی گردید. این سامانه باعث بهینه‌سازی مدیریت لیبل‌ها، کاهش فعالیت‌های دستی و خطاهای عملیاتی، و افزایش یکپارچگی فرآیندهای تولید شد.",
                 project4Tech: "Laravel • PHP • JavaScript • Tailwind CSS",
@@ -1837,8 +1932,9 @@
             });
 
 
-            setTimeout(initProjectSliders, 50);
-
+            setTimeout(function() {
+                initProjectSliders();
+            }, 100);
 
             document.getElementById('educationTitle').innerHTML = t.educationTitle;
             const eduTitle = document.getElementById('educationTitle');
@@ -2010,7 +2106,9 @@
 
         window.addEventListener('load', function() {
             handleMenuState();
-            setTimeout(initProjectSliders, 100);
+            setTimeout(function() {
+                initProjectSliders();
+            }, 400);
         });
         window.addEventListener('resize', handleMenuState);
 
