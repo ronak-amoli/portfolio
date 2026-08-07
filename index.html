@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ronak Amoli | Software Engineer | Enterprise Software | Bridging Business and Technology</title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <base href="public/" />
+    <base href="publicPublic/" />
     <!-- <base href="/" /> -->
     <style>
         @font-face {
@@ -1135,7 +1134,7 @@
 
 
         function initProjectSliders() {
-           
+
             const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
 
             document.querySelectorAll('.project-slider').forEach(slider => {
@@ -1163,7 +1162,7 @@
                     if (index >= total) index = 0;
                     current = index;
 
-                    
+
                     const offset = isRTL ? (current * 100) : -(current * 100);
                     wrapper.style.transform = 'translateX(' + offset + '%)';
 
@@ -1173,7 +1172,7 @@
                     });
                 }
 
-              
+
                 const prevBtn = slider.querySelector('.prev');
                 const nextBtn = slider.querySelector('.next');
 
@@ -1195,7 +1194,7 @@
                     });
                 }
 
-               
+
                 dots.innerHTML = '';
                 for (let i = 0; i < total; i++) {
                     const dot = document.createElement('button');
@@ -1207,7 +1206,7 @@
                     dots.appendChild(dot);
                 }
 
-               
+
                 let startX = 0;
                 let isDragging = false;
 
@@ -1221,7 +1220,7 @@
                     const diff = startX - e.touches[0].clientX;
                     if (Math.abs(diff) > 30) {
                         isDragging = false;
-                      
+
                         if (isRTL) {
                             if (diff < 0) goTo(current + 1);
                             else goTo(current - 1);
@@ -1804,7 +1803,7 @@
             mobileArrows.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
-                    el.innerHTML = lang === 'fa' ? '↑' : '↓';
+                    el.innerHTML = '↓';
                 }
             });
 
